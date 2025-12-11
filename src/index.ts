@@ -1,4 +1,5 @@
-﻿
+﻿// TODO: use axios
+
 // Docs - https://github.com/bakalari-api/bakalari-api-v3
 
 const API_URL = 'https://is.sssvt.cz/';
