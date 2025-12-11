@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "nodenext",
+    "target": "esnext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+
+    /* Safety & Modern Bundling */
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+  }
+}

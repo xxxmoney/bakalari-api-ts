@@ -1,0 +1,17 @@
+{
+  "name": "bakalari-report-creator",
+  "version": "1.0.0",
+  "description": "- Simple app for creating reports from Bakalari school system data",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
