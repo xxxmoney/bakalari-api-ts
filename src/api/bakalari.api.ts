@@ -3,6 +3,7 @@ import type { LoginResponse } from "../models/login.model.ts";
 import type { TimeTableResponse } from '../models/timetable.model.ts';
 import * as constants from '../constants.ts';
 import { DateTime } from 'luxon';
+import {objectToCamel} from "ts-case-convert";
 
 export async function login(username: string, password: string): Promise<LoginResponse> {
     const params = new URLSearchParams();
@@ -28,6 +29,6 @@ export async function getTimetable(date: DateTime): Promise<TimeTableResponse> {
         }
     });
 
-    return response.data as TimeTableResponse;
+    return objectToCamel<TimeTableResponse>(response.data);
 }
 
