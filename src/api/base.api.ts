@@ -1,4 +1,4 @@
-import axios, {type AxiosResponse} from 'axios';
+import axios from 'axios';
 import * as constants from '../constants.ts';
 
 export const api = axios.create({
