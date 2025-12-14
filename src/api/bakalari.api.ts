@@ -1,6 +1,6 @@
 import { api, setAuthToken } from "./base.api.ts";
 import type { LoginResponse } from "../models/login.model.ts";
-import type { TimeTableResponse } from '../models/timetable.model.ts';
+import type { TimeTableResponse } from '../models/timetable-response.model.ts';
 import * as constants from '../constants.ts';
 import { DateTime } from 'luxon';
 import {objectToCamel} from "ts-case-convert";

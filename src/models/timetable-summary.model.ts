@@ -1,4 +1,4 @@
-import {type DateTime, Duration} from 'luxon';
+import {type DateTime} from 'luxon';
 
 export interface TimeTableSummary {
     days: Day[];
@@ -12,8 +12,8 @@ export interface Day {
 export interface Hour {
     description: string;
     subject: string;
-    class: string;
-    beginTime: Duration;
-    endTime: Duration;
+    classes: string[];
+    beginTime: string; // In format 'HH:mm'
+    endTime: string; // In format 'HH:mm'
 }
 

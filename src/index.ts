@@ -4,7 +4,7 @@ import * as timetableService from './services/timetable.service.js';
 // Load .env
 dotenv.config();
 
-const timetableSummary = await timetableService.getTimetableSummary();
+const summary = await timetableService.getTimetableSummary();
 
-console.log(JSON.stringify(timetableSummary, null, 2));
+console.log(JSON.stringify(summary, null, 2));
 
