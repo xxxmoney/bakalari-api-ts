@@ -20,7 +20,7 @@ export async function login(username: string, password: string): Promise<LoginRe
     return data;
 }
 
-export async function getTimetable(date: DateTime): Promise<TimeTableResponse> {
+export async function getWeekTimetable(date: DateTime): Promise<TimeTableResponse> {
     const formattedDate = date.toFormat(constants.DATE_FORMAT);
 
     const response = await api.get(`/3/timetable/actual`, {

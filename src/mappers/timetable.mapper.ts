@@ -1,4 +1,4 @@
-import type {TimeTableSummary} from "../models/timetable-summary.model.js";
+import type {Hour, TimeTableSummary} from "../models/timetable-summary.model.js";
 import type {ClassItem, TimeTableResponse} from "../models/timetable-response.model.js";
 import {DateTime} from "luxon";
 import {toMap} from "../utils/map.utils.js";
@@ -26,7 +26,7 @@ export function mapTimeTableResponseToSummary(response: TimeTableResponse): Time
             date: DateTime.fromISO(day.date),
             hours: day.atoms.map(atom => ({
                 description: atom.theme,
-                subject: subjectById.get(atom.subjectId)!.name,
+                subject: subjectById.get(atom.subjectId)?.name || '',
                 classes: atom.groupIds.map(groupId =>
                     classById.get(
                         groupById.get(groupId)!.classId
