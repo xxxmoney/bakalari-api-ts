@@ -14,6 +14,7 @@ export async function getMonthTimetableSummary(currentDay: DateTime): Promise<Ti
 
     const monthTimetable: TimeTableSummary = { days: [] };
 
+    // TODO: maybe parallelize this?
     for(let date of getStartOfWeeksInMonth(currentDay)) {
         const timetable = await api.getWeekTimetable(date);
 
