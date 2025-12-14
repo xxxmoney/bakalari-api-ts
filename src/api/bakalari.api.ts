@@ -1,6 +1,6 @@
-import { api, setAuthToken } from "./api-base.ts";
-import type { LoginResponse } from "../models/login.ts";
-import type { TimeTableResponse } from '../models/timetable.ts';
+import { api, setAuthToken } from "./base.api.ts";
+import type { LoginResponse } from "../models/login.model.ts";
+import type { TimeTableResponse } from '../models/timetable.model.ts';
 import * as constants from '../constants.ts';
 import { DateTime } from 'luxon';
 

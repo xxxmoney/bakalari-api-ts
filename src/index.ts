@@ -1,5 +1,5 @@
 ﻿import * as dotenv from 'dotenv';
-import * as api from "./api/api-bakalari.ts";
+import * as api from "./api/bakalari.api.ts";
 import {DateTime} from "luxon";
 
 // Initialize config
