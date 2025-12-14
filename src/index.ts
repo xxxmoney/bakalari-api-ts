@@ -1,4 +1,9 @@
-﻿// TODO: use axios
+﻿import * as dotenv from 'dotenv';
+
+// Initialize config
+dotenv.config();
+
+// TODO: use axios
 
 // Docs - https://github.com/bakalari-api/bakalari-api-v3
 
@@ -6,8 +11,8 @@ const API_URL = 'https://is.sssvt.cz/';
 
 // Fetch login from Bakalari API
 const params = new URLSearchParams();
-params.append('username', 'hana');
-params.append('password', '');
+params.append('username', process.env.USERNAME || '');
+params.append('password', process.env.PASSWORD || '');
 params.append('grant_type', 'password');
 params.append('client_id', 'ANDR');
 
