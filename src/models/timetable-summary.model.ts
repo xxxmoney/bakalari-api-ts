@@ -1,4 +1,5 @@
 import {type DateTime} from 'luxon';
+import type {ChangeType, DayType} from "./timetable-shared.model.js";
 
 export interface TimeTableSummary {
     days: Day[];
@@ -7,9 +8,11 @@ export interface TimeTableSummary {
 export interface Day {
     date: DateTime;
     hours: Hour[];
+    dayType: DayType;
 }
 
 export interface Hour {
+    changeType: ChangeType | null;
     description: string;
     subject: string;
     classes: string[];

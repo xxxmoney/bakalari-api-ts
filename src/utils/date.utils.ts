@@ -5,15 +5,14 @@ import type {DateTime} from "luxon";
  * @param currentDay
  */
 export function getStartOfWeeksInMonth(currentDay: DateTime): DateTime[] {
-    const startOfWeeks: DateTime[] = [
-        currentDay.startOf('month').startOf('week') // First start of the week in the month
-    ];
+    const startOfWeeks: DateTime[] = [];
 
     // While is still in the same month
-    while(startOfWeeks[startOfWeeks.length - 1].month === currentDay.month) {
-        startOfWeeks.push(
-            startOfWeeks[startOfWeeks.length - 1].plus({weeks: 1})
-        );
+    let current = currentDay.startOf('month').startOf('week')
+    while(current.month === currentDay.month) {
+        startOfWeeks.push(current);
+
+        current = current.plus({weeks: 1});
     }
 
     return startOfWeeks;

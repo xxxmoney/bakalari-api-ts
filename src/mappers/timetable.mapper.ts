@@ -24,7 +24,9 @@ export function mapTimeTableResponseToSummary(response: TimeTableResponse): Time
     return {
         days: response.days.map(day => ({
             date: DateTime.fromISO(day.date),
+            dayType: day.dayType,
             hours: day.atoms.map(atom => ({
+                changeType: atom.change?.changeType || null,
                 description: atom.theme,
                 subject: subjectById.get(atom.subjectId)?.name || '',
                 classes: atom.groupIds.map(groupId =>

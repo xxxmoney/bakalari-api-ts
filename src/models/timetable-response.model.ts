@@ -1,3 +1,4 @@
+import type {ChangeType, DayType} from "./timetable-shared.model.js";
 
 export interface TimeTableResponse {
     hours: HourItem[];
@@ -11,12 +12,11 @@ export interface TimeTableResponse {
     students: any[]; // TODO: specify when known
 }
 
-
 export interface ChangeItemDto {
     changeSubject: string | null;
     day: string; // ISO 8601 DateTime string
     hours: string;
-    changeType: string;
+    changeType: ChangeType;
     description: string;
     time: string; // e.g., '8:55 - 9:40'
     typeAbbrev: string | null;
@@ -47,14 +47,6 @@ export interface HourItem {
     beginTime: string;
     endTime: string;
 }
-
-export type DayType =
-    | 'WorkDay'
-    | 'Weekend'
-    | 'Celebration'
-    | 'holiday'
-    | 'DirectorDay'
-    | 'Undefined';
 
 export interface DayItem {
     atoms: AtomDto[];

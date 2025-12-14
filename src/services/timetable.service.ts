@@ -15,8 +15,10 @@ export async function getMonthTimetableSummary(currentDay: DateTime): Promise<Ti
     const monthTimetable: TimeTableSummary = { days: [] };
 
     for(let date of getStartOfWeeksInMonth(currentDay)) {
+        const timetable = await api.getWeekTimetable(date);
+
         const { days } = mapper.mapTimeTableResponseToSummary(
-            await api.getWeekTimetable(date)
+            timetable
         );
 
         monthTimetable.days.push(...days);
