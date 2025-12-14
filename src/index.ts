@@ -1,13 +1,15 @@
 ﻿import * as dotenv from 'dotenv';
 
 // Initialize config
-dotenv.config();
+dotenv.config({ override: true });
 
 // TODO: use axios
 
 // Docs - https://github.com/bakalari-api/bakalari-api-v3
 
 const API_URL = 'https://is.sssvt.cz/';
+
+console.log(process.env)
 
 // Fetch login from Bakalari API
 const params = new URLSearchParams();
