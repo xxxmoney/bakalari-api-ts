@@ -1,7 +1,7 @@
 ﻿import * as dotenv from 'dotenv';
 
 // Initialize config
-dotenv.config({ override: true });
+dotenv.config();
 
 // TODO: use axios
 
@@ -13,8 +13,8 @@ console.log(process.env)
 
 // Fetch login from Bakalari API
 const params = new URLSearchParams();
-params.append('username', process.env.USERNAME || '');
-params.append('password', process.env.PASSWORD || '');
+params.append('username', process.env.APP_USERNAME || '');
+params.append('password', process.env.APP_PASSWORD || '');
 params.append('grant_type', 'password');
 params.append('client_id', 'ANDR');
 
