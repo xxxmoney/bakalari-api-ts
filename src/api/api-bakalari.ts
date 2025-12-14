@@ -1,6 +1,7 @@
-import { api, setAuthToken } from "./api.ts";
-import type {LoginResponse} from "./models.ts";
-import * as constants from './constants.ts';
+import { api, setAuthToken } from "./api-base.ts";
+import type { LoginResponse } from "../models/login.ts";
+import type { TimeTableResponse } from '../models/timetable.ts';
+import * as constants from '../constants.ts';
 import { DateTime } from 'luxon';
 
 export async function login(username: string, password: string): Promise<LoginResponse> {
@@ -18,7 +19,7 @@ export async function login(username: string, password: string): Promise<LoginRe
     return data;
 }
 
-export async function getTimetable(date: DateTime) {
+export async function getTimetable(date: DateTime): Promise<TimeTableResponse> {
     const formattedDate = date.toFormat(constants.DATE_FORMAT);
 
     const response = await api.get(`/3/timetable/actual`, {
@@ -27,6 +28,6 @@ export async function getTimetable(date: DateTime) {
         }
     });
 
-    return response.data;
+    return response.data as TimeTableResponse;
 }
 

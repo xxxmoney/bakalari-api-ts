@@ -1,5 +1,5 @@
 ﻿import * as dotenv from 'dotenv';
-import * as api from "./bakalari-api.ts";
+import * as api from "./api/api-bakalari.ts";
 import {DateTime} from "luxon";
 
 // Initialize config
@@ -9,4 +9,4 @@ await api.login(process.env.APP_USERNAME || '', process.env.APP_PASSWORD || '');
 
 const timetable = await api.getTimetable(DateTime.fromFormat("14.12.2025", "dd.MM.yyyy"))
 
-console.log(timetable);
+console.log(JSON.stringify(timetable));

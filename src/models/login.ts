@@ -5,7 +5,3 @@ export interface LoginResponse {
     token_type: string;
     expires_in: number;
 }
-
-export interface TimeTableResponse {
-
-}
