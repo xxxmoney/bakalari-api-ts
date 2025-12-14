@@ -5,7 +5,7 @@
   "description": "- Simple app for creating reports from Bakalari school system data",
   "main": "index.js",
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "tsx index.ts",
     "build": "tsc"
   },
   "author": "",
