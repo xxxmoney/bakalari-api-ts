@@ -1,27 +1,12 @@
 ﻿import * as dotenv from 'dotenv';
+import * as api from "./bakalari-api.ts";
+import {DateTime} from "luxon";
 
 // Initialize config
 dotenv.config();
 
-// TODO: use axios
+await api.login(process.env.APP_USERNAME || '', process.env.APP_PASSWORD || '');
 
-// Docs - https://github.com/bakalari-api/bakalari-api-v3
+const timetable = await api.getTimetable(DateTime.fromFormat("14.12.2025", "dd.MM.yyyy"))
 
-const API_URL = 'https://is.sssvt.cz/';
-
-console.log(process.env)
-
-// Fetch login from Bakalari API
-const params = new URLSearchParams();
-params.append('username', process.env.APP_USERNAME || '');
-params.append('password', process.env.APP_PASSWORD || '');
-params.append('grant_type', 'password');
-params.append('client_id', 'ANDR');
-
-const response = await fetch(`${API_URL}/IS/api/login`, {
-    method: 'POST',
-    body: params
-});
-
-const data = await response.json()
-console.log(data)
+console.log(timetable);
