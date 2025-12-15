@@ -1,5 +1,5 @@
 {
-  "name": "bakalari-report-creator",
+  "name": "bakalari-api-ts",
   "version": "1.0.0",
   "type": "module",
   "description": "- Simple app for creating reports from Bakalari school system data",
