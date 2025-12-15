@@ -3,11 +3,21 @@
     /* Base Options */
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "nodenext",
+    "module": "esnext",
     "target": "esnext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+
+    /* Options for package */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+      // TODO: check if I need these:
+//    "composite": true,
+//    "removeComments": true,
+//    "forceConsistentCasingInFileNames": true,
 
     /* Safety & Modern Bundling */
     "verbatimModuleSyntax": true,
