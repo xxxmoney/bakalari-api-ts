@@ -12,7 +12,7 @@ export default defineConfig([
         files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
         plugins: { js },
         extends: ['js/recommended'],
-        languageOptions: { globals: globals.browser },
+        languageOptions: { globals: { ...globals.browser, ...globals.jest } },
         rules: {
             // Single quotes (using the base 'quotes' rule)
             'quotes': ['error', 'single', { 'avoidEscape': true }],
