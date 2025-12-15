@@ -12,7 +12,8 @@
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build",
-    "lint": "eslint --ignore-path .gitignore --ext .ts"
+    "lint": "eslint {src,test}/**/*.ts",
+    "lint:fix": "eslint {src,test}/**/*.ts --fix"
   },
   "author": "",
   "license": "ISC",

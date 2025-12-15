@@ -8,7 +8,7 @@ export interface TimeTableResponse {
     teachers: TeacherItemDto[];
     rooms: RoomItemDto[];
     cycles: CycleItemDto[];
-    students: any[]; // TODO: specify when known
+    students: unknown[]; // TODO: specify when known
 }
 
 export type ChangeTypeDto =
@@ -39,10 +39,10 @@ export interface AtomDto {
     isLastRoomLesson: boolean;
     cycleIds: string[];
     change: ChangeItemDto | null;
-    homeworkIds: any[]; // TODO: specify when known
-    homeworks: any[]; // TODO: specify when known
+    homeworkIds: unknown[]; // TODO: specify when known
+    homeworks: unknown[]; // TODO: specify when known
     theme: string;
-    assistants: any[]; // TODO: specify when known
+    assistants: unknown[]; // TODO: specify when known
     notice: string;
     lessonRelease: string; // e.g., 'NoChange'
 }
@@ -64,7 +64,7 @@ export type DayTypeDto =
 
 export interface DayItemDto {
     atoms: AtomDto[];
-    assistanceAtoms: any[]; // TODO: specify when known
+    assistanceAtoms: unknown[]; // TODO: specify when known
     dayOfWeek: number;
     date: string; // ISO 8601 DateTime string
     dayDescription: string;
