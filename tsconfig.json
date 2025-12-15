@@ -18,7 +18,6 @@
 
     /* Safety & Modern Bundling */
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "allowImportingTsExtensions": true
+    "isolatedModules": true
   }
 }
