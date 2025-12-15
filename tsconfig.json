@@ -13,11 +13,8 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-
-      // TODO: check if I need these:
-//    "composite": true,
-//    "removeComments": true,
-//    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
 
     /* Safety & Modern Bundling */
     "verbatimModuleSyntax": true,

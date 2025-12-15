@@ -1,0 +1,8 @@
+
+src/
+tsconfig.json
+.github/
+node_modules/
+jest.config.js
+.eslintrc.js
+.git/

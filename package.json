@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "type": "module",
   "description": "- Simple app for creating reports from Bakalari school system data",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "tsx src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "author": "",
   "license": "ISC",
