@@ -1,4 +1,9 @@
 
+<p style="text-align: center">
+  <a href="https://www.npmjs.com/package/jest"><img src="https://img.shields.io/npm/v/bakalari-api-ts" alt="npm version"></a>
+  <a href="https://github.com/xxxmoney/bakalari-api-ts/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="Bakalari API TS is released under the MIT license"></a>
+</p>
+
 # Bakalari API TS
 
 ## About
