@@ -19,6 +19,14 @@
 
     /* Safety & Modern Bundling */
     "verbatimModuleSyntax": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+
+    "exclude": [
+      "node_modules",
+      "dist",
+      "**/*.test.ts",
+      "**/*.integration.test.ts",
+      "__mocks__"
+    ]
   }
 }
