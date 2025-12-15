@@ -10,9 +10,9 @@ export function toMap<T, K>(
     // eslint-disable-next-line no-unused-vars
     keySelector: (item: T) => K
 ): Map<K, T> {
-    return array.reduce((map, item) => {
+    return array?.reduce((map, item) => {
         map.set(keySelector(item), item);
 
         return map;
-    }, new Map<K, T>());
+    }, new Map<K, T>()) ?? new Map<K, T>();
 }
