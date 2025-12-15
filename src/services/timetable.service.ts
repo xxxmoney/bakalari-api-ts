@@ -1,7 +1,7 @@
 import {DateTime} from "luxon";
-import * as api from "../api/bakalari.api.ts";
-import * as mapper from "../mappers/timetable.mapper.ts";
-import { getStartOfWeeksInMonth } from "../utils/date.utils.ts";
+import * as api from "../api/bakalari.api";
+import * as mapper from "../mappers/timetable.mapper";
+import { getStartOfWeeksInMonth } from "../utils/date.utils";
 import type {TimeTableSummary} from "../models/timetable-summary.model.js";
 
 /**
