@@ -3,9 +3,9 @@
     /* Base Options */
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "target": "esnext",
+    "module": "esnext", // Syntax for import/export in the compiled files
+    "moduleResolution": "bundler", // Compiler's search rules for finding files when an import statement is used
+    "target": "esnext", // JavaScript features the compiled code will use
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
