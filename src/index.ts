@@ -1,11 +1,13 @@
-﻿import * as dotenv from 'dotenv';
-import * as timetableService from './services/timetable.service.js';
-import {DateTime} from "luxon";
+﻿
+// Define the "barrel file" - simplify imports for consumer of the package
 
-// Load .env
-dotenv.config();
+// Export APIs
+export * from './api/bakalari.api';
 
-const summary = await timetableService.getMonthTimetableSummary(DateTime.now());
+// Export models
+export * from './models/login.model';
+export * from './models/timetable-response.model';
+export * from './models/timetable-summary.model';
 
-console.log(JSON.stringify(summary, null, 2));
-
+// Export services
+export * from './services/timetable.service';

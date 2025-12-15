@@ -1,22 +1,28 @@
-import type {ChangeType, DayType} from "./timetable-shared.model.js";
 
 export interface TimeTableResponse {
-    hours: HourItem[];
-    days: DayItem[];
-    classes: ClassItem[];
-    groups: GroupItem[];
-    subjects: SubjectItem[];
-    teachers: TeacherItem[];
-    rooms: RoomItem[];
-    cycles: CycleItem[];
+    hours: HourItemDto[];
+    days: DayItemDto[];
+    classes: ClassItemDto[];
+    groups: GroupItemDto[];
+    subjects: SubjectItemDto[];
+    teachers: TeacherItemDto[];
+    rooms: RoomItemDto[];
+    cycles: CycleItemDto[];
     students: any[]; // TODO: specify when known
 }
+
+export type ChangeTypeDto =
+    | 'Canceled'
+    | 'Added'
+    | 'Removed'
+    | 'RoomChanged'
+    | 'Substitution';
 
 export interface ChangeItemDto {
     changeSubject: string | null;
     day: string; // ISO 8601 DateTime string
     hours: string;
-    changeType: ChangeType;
+    changeType: ChangeTypeDto;
     description: string;
     time: string; // e.g., '8:55 - 9:40'
     typeAbbrev: string | null;
@@ -41,54 +47,62 @@ export interface AtomDto {
     lessonRelease: string; // e.g., 'NoChange'
 }
 
-export interface HourItem {
+export interface HourItemDto {
     id: number;
     caption: string;
     beginTime: string;
     endTime: string;
 }
 
-export interface DayItem {
+export type DayTypeDto =
+    | 'WorkDay'
+    | 'Weekend'
+    | 'Celebration'
+    | 'holiday'
+    | 'DirectorDay'
+    | 'Undefined';
+
+export interface DayItemDto {
     atoms: AtomDto[];
     assistanceAtoms: any[]; // TODO: specify when known
     dayOfWeek: number;
     date: string; // ISO 8601 DateTime string
     dayDescription: string;
-    dayType: DayType; // e.g., 'WorkDay'
+    dayType: DayTypeDto; // e.g., 'WorkDay'
 }
 
-export interface ClassItem {
+export interface ClassItemDto {
     id: string;
     abbrev: string;
     name: string;
 }
 
-export interface GroupItem {
+export interface GroupItemDto {
     classId: string;
     id: string;
     abbrev: string;
     name: string;
 }
 
-export interface SubjectItem {
+export interface SubjectItemDto {
     id: string;
     abbrev: string;
     name: string;
 }
 
-export interface TeacherItem {
+export interface TeacherItemDto {
     id: string;
     abbrev: string;
     name: string;
 }
 
-export interface RoomItem {
+export interface RoomItemDto {
     id: string;
     abbrev: string;
     name: string;
 }
 
-export interface CycleItem {
+export interface CycleItemDto {
     id: string;
     abbrev: string;
     name: string;

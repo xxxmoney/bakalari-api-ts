@@ -1,5 +1,5 @@
 import type {Hour, TimeTableSummary} from "../models/timetable-summary.model.js";
-import type {ClassItem, TimeTableResponse} from "../models/timetable-response.model.js";
+import type {ClassItemDto, TimeTableResponse} from "../models/timetable-response.model.js";
 import {DateTime} from "luxon";
 import {toMap} from "../utils/map.utils.js";
 
@@ -14,7 +14,7 @@ export function mapTimeTableResponseToSummary(response: TimeTableResponse): Time
     );
     const classById = toMap(
         response.classes,
-        (item: ClassItem) => item.id
+        (item: ClassItemDto) => item.id
     );
     const hourById = toMap(
         response.hours,
