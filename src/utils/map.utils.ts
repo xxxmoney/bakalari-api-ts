@@ -7,6 +7,7 @@
  */
 export function toMap<T, K>(
     array: T[],
+    // eslint-disable-next-line no-unused-vars
     keySelector: (item: T) => K
 ): Map<K, T> {
     return array.reduce((map, item) => {

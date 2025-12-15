@@ -1,7 +1,7 @@
-import type {TimeTableSummary} from "../models/timetable-summary.model";
-import type {ClassItemDto, TimeTableResponse} from "../models/timetable-response.model";
-import {DateTime} from "luxon";
-import {toMap} from "../utils/map.utils";
+import type { TimeTableSummary } from '../models/timetable-summary.model';
+import type { ClassItemDto, TimeTableResponse } from '../models/timetable-response.model';
+import { DateTime } from 'luxon';
+import { toMap } from '../utils/map.utils';
 
 export function mapTimeTableResponseToSummary(response: TimeTableResponse): TimeTableSummary {
     const subjectById = toMap(
@@ -38,5 +38,5 @@ export function mapTimeTableResponseToSummary(response: TimeTableResponse): Time
                 endTime: hourById.get(atom.hourId)!.endTime
             }))
         }))
-    }
+    };
 }

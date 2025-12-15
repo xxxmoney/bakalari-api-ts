@@ -1,6 +1,6 @@
-import {objectToCamel} from "ts-case-convert";
-import { api, setAuthToken } from "./base.api";
-import type { LoginResponse } from "../models/login.model";
+import { objectToCamel } from 'ts-case-convert';
+import { api, setAuthToken } from './base.api';
+import type { LoginResponse } from '../models/login.model';
 import type { TimeTableResponse } from '../models/timetable-response.model';
 import * as constants from '../constants';
 import { DateTime } from 'luxon';
@@ -23,7 +23,7 @@ export async function login(username: string, password: string): Promise<LoginRe
 export async function getWeekTimetable(date: DateTime): Promise<TimeTableResponse> {
     const formattedDate = date.toFormat(constants.DATE_FORMAT);
 
-    const response = await api.get(`/3/timetable/actual`, {
+    const response = await api.get('/3/timetable/actual', {
         params: {
             date: formattedDate
         }
