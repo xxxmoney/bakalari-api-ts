@@ -26,6 +26,7 @@
     "dist",
     "**/*.test.ts",
     "**/*.integration.test.ts",
-    "__mocks__"
+    "__mocks__",
+    "eslint.config.ts"
   ]
 }
