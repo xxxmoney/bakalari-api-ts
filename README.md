@@ -1,11 +1,10 @@
 
-# Bakalari Report Creator
+# Bakalari API TS
 
 ## About
- - Simple app for creating reports from Bakalari school system data
+ - Simple package for communicating with Bakalari school information system API
+ - This package also includes some helpers and services for easier integration
 
 ## Getting started
- - Install packages with `npm install`
- - Copy the example `.env.example` to `.env` and fill in the required environment variables
- - Run the app with `npm start`
+ - TODO
 

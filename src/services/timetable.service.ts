@@ -1,24 +1,24 @@
-import {DateTime} from "luxon";
-import * as api from "../api/bakalari.api.ts";
-import * as mapper from "../mappers/timetable.mapper.ts";
-import { getStartOfWeeksInMonth } from "../utils/date.utils.ts";
-import type {TimeTableSummary} from "../models/timetable-summary.model.js";
+import { DateTime } from 'luxon';
+import * as api from '../api/bakalari.api';
+import * as mapper from '../mappers/timetable.mapper';
+import { getStartOfWeeksInMonth } from '../utils/date.utils';
+import type { TimeTableSummary } from '../models/timetable-summary.model.js';
 
 /**
  * Get timetable summary for the month of the given date
+ * @param username
+ * @param password
  * @param currentDay
  */
-export async function getMonthTimetableSummary(currentDay: DateTime): Promise<TimeTableSummary> {
+export async function getMonthTimetableSummary(username: string, password: string, currentDay: DateTime): Promise<TimeTableSummary> {
     // Authenticate
-    await api.login(process.env.APP_USERNAME || '', process.env.APP_PASSWORD || '');
+    await api.login(username || '', password || '');
 
     const monthTimetable: TimeTableSummary = { days: [] };
 
     // TODO: maybe parallelize this?
-    for(let date of getStartOfWeeksInMonth(currentDay)) {
-        const timetable = await api.getWeekTimetable(date);
-
-        const { days } = mapper.mapTimeTableResponseToSummary(
+    for (const date of getStartOfWeeksInMonth(currentDay)) {
+        const timetable = await api.getWeekTimetable(date);        const { days } = mapper.mapTimeTableResponseToSummary(
             timetable
         );
 

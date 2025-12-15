@@ -1,25 +1,36 @@
 {
-  "name": "bakalari-report-creator",
+  "name": "bakalari-api-ts",
   "version": "1.0.0",
   "type": "module",
   "description": "- Simple app for creating reports from Bakalari school system data",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
-    "start": "tsx src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint {src,test}/**/*.ts",
+    "lint:fix": "eslint {src,test}/**/*.ts --fix"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.39.2",
     "@types/dotenv": "^6.1.1",
     "@types/luxon": "^3.7.1",
     "@types/node": "^25.0.0",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.49.0"
   },
   "dependencies": {
     "axios": "^1.13.2",
-    "dotenv": "^17.2.3",
     "luxon": "^3.7.2",
     "ts-case-convert": "^2.1.0"
   }

@@ -3,15 +3,22 @@
     /* Base Options */
     "rootDir": "./src",
     "outDir": "./dist",
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "esnext", // Syntax for import/export in the compiled files
+    "moduleResolution": "bundler", // Compiler's search rules for finding files when an import statement is used
+    "target": "esnext", // JavaScript features the compiled code will use
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
 
+    /* Options for package */
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+
     /* Safety & Modern Bundling */
     "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "allowImportingTsExtensions": true
+    "isolatedModules": true
   }
 }
