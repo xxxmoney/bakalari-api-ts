@@ -3,6 +3,8 @@ src/
 tsconfig.json
 .github/
 node_modules/
+jest.config.ts
 jest.config.js
-.eslintrc.js
+.eslint.config.ts
+.eslint.config.js
 .git/
