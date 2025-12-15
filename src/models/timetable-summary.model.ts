@@ -35,4 +35,3 @@ export interface Hour {
     beginTime: string; // In format 'HH:mm'
     endTime: string; // In format 'HH:mm'
 }
-

@@ -18,9 +18,7 @@ export async function getMonthTimetableSummary(username: string, password: strin
 
     // TODO: maybe parallelize this?
     for (const date of getStartOfWeeksInMonth(currentDay)) {
-        const timetable = await api.getWeekTimetable(date);
-
-        const { days } = mapper.mapTimeTableResponseToSummary(
+        const timetable = await api.getWeekTimetable(date);        const { days } = mapper.mapTimeTableResponseToSummary(
             timetable
         );
 

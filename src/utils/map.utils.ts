@@ -12,6 +12,7 @@ export function toMap<T, K>(
 ): Map<K, T> {
     return array.reduce((map, item) => {
         map.set(keySelector(item), item);
+
         return map;
     }, new Map<K, T>());
 }
