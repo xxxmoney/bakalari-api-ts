@@ -15,6 +15,7 @@ describe('TimetableService', () => {
     test('getMonthTimetableSummary', async () => {
         // Arrange
         const date = DateTime.fromISO('2025-12-01');
+        // TODO: load and compare data from examples folder
         const mockData = { days: [] };
         const expected = { days: [] };
 
