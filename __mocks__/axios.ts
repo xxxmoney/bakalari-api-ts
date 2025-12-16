@@ -2,7 +2,7 @@
 // @ts-nocheck
 
 const mockAxios = {
-    get: jest.fn(() => Promise.resolve({ data: {} })),
+    get: jest.fn(() => Promise.resolve({ data: { 'test': 'test' } })),
     post: jest.fn(() => Promise.resolve({ data: {} })),
     create: jest.fn(() => mockAxios),
     defaults: {

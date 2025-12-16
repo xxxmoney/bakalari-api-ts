@@ -3,26 +3,26 @@ import type { ClassItemDto, TimeTableResponse } from '../models/timetable-respon
 import { DateTime } from 'luxon';
 import { toMap } from '../utils/map.utils';
 
-export function mapTimeTableResponseToSummary(response: TimeTableResponse): TimeTableSummary {
+export function mapTimeTableResponseToSummary(timetable: TimeTableResponse): TimeTableSummary {
     const subjectById = toMap(
-        response.subjects,
+        timetable.subjects,
         (item) => item.id
     );
     const groupById = toMap(
-        response.groups,
+        timetable.groups,
         (item) => item.id
     );
     const classById = toMap(
-        response.classes,
+        timetable.classes,
         (item: ClassItemDto) => item.id
     );
     const hourById = toMap(
-        response.hours,
+        timetable.hours,
         (item) => item.id
     );
 
     return {
-        days: response.days.map(day => ({
+        days: timetable.days.map(day => ({
             date: DateTime.fromISO(day.date),
             dayType: day.dayType,
             hours: day.atoms.map(atom => ({

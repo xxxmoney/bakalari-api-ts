@@ -10,3 +10,5 @@ jest.config.js
 .eslint.config.ts
 .eslint.config.js
 .git/
+.env.example
+.env

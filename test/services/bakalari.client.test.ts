@@ -2,11 +2,9 @@ import axios from 'axios';
 import { DateTime } from 'luxon';
 import { BakalariClient } from '../../src';
 
-// Use mock for axios
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
 describe('BakalariClient', () => {
+    const mockedAxios = axios as jest.Mocked<typeof axios>;
+
     beforeEach(() => {
         // Clear call history before each test
         mockedAxios.get.mockClear();

@@ -18,6 +18,6 @@ export class BakalariClient {
     }
 
     async initialize() {
-        return this.login.authenticate();
+        await this.login.authenticate();
     }
 }

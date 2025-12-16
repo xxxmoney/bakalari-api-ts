@@ -1,5 +1,13 @@
+jest.unmock('axios');
+
 import { BakalariClient } from '../src';
 import { DateTime } from 'luxon';
+import dotenv from 'dotenv';
+
+beforeAll(() => {
+    // Copy .env.example to .env and fill in the values before running e2e tests
+    dotenv.config();
+});
 
 describe('BakalariClient', () => {
     test('timetable.getMonthTimetableSummary', async () => {
@@ -7,7 +15,8 @@ describe('BakalariClient', () => {
         // Arrange
         //
         const date = DateTime.fromISO('2025-12-01');
-        const client = new BakalariClient('', { username: '', password: '' });
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
 
         //
         // Act
