@@ -1,20 +1,18 @@
-// TODO: fix test
-
 import axios from 'axios';
-import { getMonthTimetableSummary } from '../../src';
 import { DateTime } from 'luxon';
+import { BakalariClient } from '../../src';
 
 // Use mock for axios
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('TimetableService', () => {
+describe('BakalariClient', () => {
     beforeEach(() => {
         // Clear call history before each test
         mockedAxios.get.mockClear();
     });
 
-    test('getMonthTimetableSummary', async () => {
+    test('timetable.getMonthTimetableSummary', async () => {
         // Arrange
         const date = DateTime.fromISO('2025-12-01');
         // TODO: load and compare data from examples folder
@@ -30,7 +28,10 @@ describe('TimetableService', () => {
         }); // Set response to all get requests
 
         // Act
-        const result = await getMonthTimetableSummary('', '', date);
+        const client = new BakalariClient('https://hustlers-university.ca/IS', { username: 'user', password: 'pass' });
+
+        await client.initialize();
+        const result = await client.timetable.getMonthTimetableSummary(date);
 
         // Assert
         expect(mockedAxios.post).toHaveBeenCalledTimes(1); // 1 time for login
