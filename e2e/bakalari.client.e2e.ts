@@ -8,9 +8,11 @@ describe('BakalariClient', () => {
         //
         const date = DateTime.fromISO('2025-12-01');
         const client = new BakalariClient('', { username: '', password: '' });
+
         //
         // Act
         //
+        await client.initialize();
         const result = await client.timetable.getMonthTimetableSummary(date);
 
         //
