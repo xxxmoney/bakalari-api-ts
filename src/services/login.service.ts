@@ -15,7 +15,7 @@ export class LoginService {
         return this.loginResource.authenticate(this.credentials.username, this.credentials.password);
     }
 
-    async reauthenticate() {
+    private async reauthenticate() {
         // TODO: implement refresh token flow
         throw new Error('Not implemented');
     }
