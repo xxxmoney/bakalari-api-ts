@@ -1,29 +1,35 @@
-import { DateTime } from 'luxon';
-import * as api from '../api/bakalari.api';
-import * as mapper from '../mappers/timetable.mapper';
+﻿import { TimetableResource } from '../resources/timetable.resource';
+import { Api } from '../api/base.api';
+import type { DateTime } from 'luxon';
+import type { TimeTableSummary } from '../models/timetable-summary.model';
 import { getStartOfWeeksInMonth } from '../utils/date.utils';
-import type { TimeTableSummary } from '../models/timetable-summary.model.js';
+import * as mapper from '../mappers/timetable.mapper';
 
-/**
- * Get timetable summary for the month of the given date
- * @param username
- * @param password
- * @param currentDay
- */
-export async function getMonthTimetableSummary(username: string, password: string, currentDay: DateTime): Promise<TimeTableSummary> {
-    // Authenticate
-    await api.login(username || '', password || '');
+export class TimetableService {
+    private readonly timetableResource: TimetableResource;
 
-    const monthTimetable: TimeTableSummary = { days: [] };
-
-    // TODO: maybe parallelize this?
-    for (const date of getStartOfWeeksInMonth(currentDay)) {
-        const timetable = await api.getWeekTimetable(date);        const { days } = mapper.mapTimeTableResponseToSummary(
-            timetable
-        );
-
-        monthTimetable.days.push(...days);
+    constructor(api: Api) {
+        this.timetableResource = new TimetableResource(api);
     }
 
-    return monthTimetable;
+    /**
+     * Get timetable summary for the month of the given date
+     * @param currentDay
+     */
+    async getMonthTimetableSummary(currentDay: DateTime): Promise<TimeTableSummary> {
+        const monthTimetable: TimeTableSummary = { days: [] };
+
+        // TODO: maybe parallelize this?
+        for (const date of getStartOfWeeksInMonth(currentDay)) {
+            const timetable = await this.timetableResource.getWeekTimetable(date);
+            const { days } = mapper.mapTimeTableResponseToSummary(
+                timetable
+            );
+
+            monthTimetable.days.push(...days);
+        }
+
+        return monthTimetable;
+    }
+
 }
