@@ -1,6 +1,6 @@
 {
   "name": "bakalari-api-ts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "- Simple app for creating reports from Bakalari school system data",
   "keywords": ["typescript", "javascript", "bakalari", "api", "school", "reports"],
