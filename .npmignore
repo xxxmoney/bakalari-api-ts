@@ -1,6 +1,7 @@
 
 src/
 test/
+e2e/
 tsconfig.json
 .github/
 node_modules/
@@ -9,3 +10,5 @@ jest.config.js
 .eslint.config.ts
 .eslint.config.js
 .git/
+.env.example
+.env

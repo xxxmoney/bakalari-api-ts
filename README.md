@@ -21,13 +21,18 @@ npm install bakalari-api-ts
 An example of getting timetable for an account:
 
 ```ts
-import { getMonthTimetableSummary } from 'bakalari-api-ts';
+import { BakalariClient } from 'bakalari-api-ts';
 import { DateTime } from 'luxon';
 
-const summary = await getMonthTimetableSummary(
-    'YOUR_USERNAME', // Your Bakalari username
-    'YOUR_PASSWORD', // Your Bakalari password
-    DateTime.now() // Any day in the month you want to get (Luxon date)
+// Create the client for specific school
+const client = new BakalariClient('YOUR_SCHOOL_API_URL', 'YOUR_USERNAME', 'YOUR_PASSWORD');
+
+// Initialize (authenticate)
+await client.initialize();
+
+// Get timetable summary for current month
+const summary = await client.timetable.getMonthTimetableSummary(
+    DateTime.now()
 )
 ```
 

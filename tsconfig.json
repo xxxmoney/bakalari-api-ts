@@ -25,6 +25,7 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
+    "**/*.e2e.ts",
     "**/*.integration.test.ts",
     "__mocks__",
     "eslint.config.ts"
