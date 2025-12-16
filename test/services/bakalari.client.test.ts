@@ -13,7 +13,9 @@ describe('BakalariClient', () => {
     });
 
     test('timetable.getMonthTimetableSummary', async () => {
+        //
         // Arrange
+        //
         const date = DateTime.fromISO('2025-12-01');
         // TODO: load and compare data from examples folder
         const mockData = { days: [] };
@@ -27,13 +29,17 @@ describe('BakalariClient', () => {
             config: {},
         }); // Set response to all get requests
 
+        //
         // Act
+        //
         const client = new BakalariClient('https://hustlers-university.ca/IS', { username: 'user', password: 'pass' });
 
         await client.initialize();
         const result = await client.timetable.getMonthTimetableSummary(date);
 
+        //
         // Assert
+        //
         expect(mockedAxios.post).toHaveBeenCalledTimes(1); // 1 time for login
         expect(mockedAxios.get).toHaveBeenCalledTimes(5); // 5 times for getting weeks
         expect(result).toEqual(expected);
