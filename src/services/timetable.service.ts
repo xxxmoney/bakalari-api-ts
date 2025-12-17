@@ -6,10 +6,10 @@ import { getStartOfWeeksInMonth } from '../utils/date.utils';
 import * as mapper from '../mappers/timetable.mapper';
 
 export class TimetableService {
-    private readonly timetableResource: TimetableResource;
+    public readonly resource: TimetableResource;
 
     constructor(api: Api) {
-        this.timetableResource = new TimetableResource(api);
+        this.resource = new TimetableResource(api);
     }
 
     /**
@@ -21,7 +21,7 @@ export class TimetableService {
 
         // TODO: maybe parallelize this?
         for (const date of getStartOfWeeksInMonth(currentDay)) {
-            const timetable = await this.timetableResource.getWeekTimetable(date);
+            const timetable = await this.resource.getWeekTimetable(date);
             const { days } = mapper.mapTimeTableResponseToSummary(
                 timetable
             );

@@ -17,7 +17,7 @@ export class BakalariClient {
         this.timetable = new TimetableService(api);
     }
 
-    async initialize() {
+    async authenticate() {
         await this.login.authenticate();
     }
 }

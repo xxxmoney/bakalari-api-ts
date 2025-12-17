@@ -28,10 +28,15 @@ import { DateTime } from 'luxon';
 const client = new BakalariClient('YOUR_SCHOOL_API_URL', 'YOUR_USERNAME', 'YOUR_PASSWORD');
 
 // Initialize (authenticate)
-await client.initialize();
+await client.authenticate();
 
-// Get timetable summary for current month
+// You can now acccess various services in the client, for example timetable service:
 const summary = await client.timetable.getMonthTimetableSummary(
+    DateTime.now()
+)
+
+// You can also access the underlying resource of each service (to directly access the endpoints):
+const rawTimetable = await client.timetable.resource.getWeekTimetable(
     DateTime.now()
 )
 ```

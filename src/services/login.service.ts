@@ -4,15 +4,16 @@ import { Api } from '../api/base.api';
 
 export class LoginService {
     private readonly credentials: Credentials;
-    private readonly loginResource: LoginResource;
+
+    public readonly resource: LoginResource;
 
     constructor(api: Api, credentials: Credentials) {
         this.credentials = credentials;
-        this.loginResource = new LoginResource(api);
+        this.resource = new LoginResource(api);
     }
 
     async authenticate() {
-        return this.loginResource.authenticate(this.credentials.username, this.credentials.password);
+        return this.resource.authenticate(this.credentials.username, this.credentials.password);
     }
 
     private async reauthenticate() {

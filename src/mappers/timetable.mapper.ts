@@ -1,9 +1,9 @@
 import type { TimeTableSummary } from '../models/timetable-summary.model';
-import type { ClassItemDto, TimeTableResponse } from '../models/timetable-response.model';
+import type { ClassItemDto, TimeTableResponseDto } from '../models/timetable-response.model';
 import { DateTime } from 'luxon';
 import { toMap } from '../utils/map.utils';
 
-export function mapTimeTableResponseToSummary(timetable: TimeTableResponse): TimeTableSummary {
+export function mapTimeTableResponseToSummary(timetable: TimeTableResponseDto): TimeTableSummary {
     const subjectById = toMap(
         timetable.subjects,
         (item) => item.id
