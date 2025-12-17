@@ -21,8 +21,29 @@ describe('BakalariClient', () => {
         //
         // Act
         //
-        await client.initialize();
+        await client.authenticate();
         const result = await client.timetable.getMonthTimetableSummary(date);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('timetable.resource.getWeekTimetable', async () => {
+        //
+        // Arrange
+        //
+        const date = DateTime.fromISO('2025-12-01');
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.timetable.resource.getWeekTimetable(date);
 
         //
         // Assert

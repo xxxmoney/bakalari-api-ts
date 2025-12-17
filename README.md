@@ -28,7 +28,7 @@ import { DateTime } from 'luxon';
 const client = new BakalariClient('YOUR_SCHOOL_API_URL', 'YOUR_USERNAME', 'YOUR_PASSWORD');
 
 // Initialize (authenticate)
-await client.initialize();
+await client.authenticate();
 
 // Get timetable summary for current month
 const summary = await client.timetable.getMonthTimetableSummary(
