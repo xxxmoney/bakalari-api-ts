@@ -98,3 +98,65 @@ describe('BakalariClient.classbook.resource', () => {
         expect(result).toBeDefined();
     });
 });
+
+describe('BakalariClient.event.resource', () => {
+    test('getEvents', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.event.resource.getEvents();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getMyEvents', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.event.resource.getMyEvents();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getPublicEvents', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.event.resource.getPublicEvents();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});

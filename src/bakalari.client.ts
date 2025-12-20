@@ -4,7 +4,7 @@ import type { Credentials } from './models/credentials.model';
 import { LoginService } from './services/login.service';
 import { AbsenceService } from './services/absence.service';
 import { ClassbookService } from './services/classbook.service';
-import { EventService } from './services/events.service';
+import { EventService } from './services/event.service';
 
 // Export services as single unified service
 export class BakalariClient {
