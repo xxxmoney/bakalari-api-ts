@@ -9,7 +9,7 @@ beforeAll(() => {
     dotenv.config();
 });
 
-describe('BakalariClient', () => {
+describe('BakalariClient services', () => {
     test('timetable.getMonthTimetableSummary', async () => {
         //
         // Arrange
@@ -30,7 +30,9 @@ describe('BakalariClient', () => {
         console.log(JSON.stringify(result, null, 2));
         expect(result).toBeDefined();
     });
+});
 
+describe('BakalariClient resources', () => {
     test('timetable.resource.getWeekTimetable', async () => {
         //
         // Arrange
