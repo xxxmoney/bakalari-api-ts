@@ -1,5 +1,5 @@
 
-export interface TimeTableResponseDto {
+export interface TimeTableDto {
     hours: HourItemDto[];
     days: DayItemDto[];
     classes: ClassItemDto[];

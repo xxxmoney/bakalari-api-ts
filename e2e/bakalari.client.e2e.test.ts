@@ -9,8 +9,8 @@ beforeAll(() => {
     dotenv.config();
 });
 
-describe('BakalariClient services', () => {
-    test('timetable.getMonthTimetableSummary', async () => {
+describe('BakalariClient.timetable', () => {
+    test('getMonthTimetableSummary', async () => {
         //
         // Arrange
         //
@@ -32,8 +32,8 @@ describe('BakalariClient services', () => {
     });
 });
 
-describe('BakalariClient resources', () => {
-    test('timetable.resource.getWeekTimetable', async () => {
+describe('BakalariClient.timetable.resource', () => {
+    test('getWeekTimetable', async () => {
         //
         // Arrange
         //
@@ -46,6 +46,28 @@ describe('BakalariClient resources', () => {
         //
         await client.authenticate();
         const result = await client.timetable.resource.getWeekTimetable(date);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});
+
+describe('BakalariClient.absence.resource', () => {
+    test('getStudentAbsences', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.absence.resource.getStudentAbsences();
 
         //
         // Assert

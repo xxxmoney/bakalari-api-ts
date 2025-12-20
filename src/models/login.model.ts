@@ -1,5 +1,5 @@
 
-export interface LoginResponse {
+export interface LoginDto {
     accessToken: string;
     refreshToken: string;
     tokenType: string;

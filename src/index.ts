@@ -4,7 +4,7 @@ export * from './models/login.model';
 
 export * from './models/credentials.model';
 
-export * from './models/timetable-response.model';
+export * from './models/timetable.model';
 
 export * from './models/timetable-summary.model';
 
