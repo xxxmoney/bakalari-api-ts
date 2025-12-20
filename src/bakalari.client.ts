@@ -4,6 +4,7 @@ import type { Credentials } from './models/credentials.model';
 import { LoginService } from './services/login.service';
 import { AbsenceService } from './services/absence.service';
 import { ClassbookService } from './services/classbook.service';
+import { EventService } from './services/events.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -12,6 +13,7 @@ export class BakalariClient {
     public readonly timetable: TimetableService;
     public readonly absence: AbsenceService;
     public readonly classbook: ClassbookService;
+    public readonly event: EventService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -21,6 +23,7 @@ export class BakalariClient {
         this.timetable = new TimetableService(api);
         this.absence = new AbsenceService(api);
         this.classbook = new ClassbookService(api);
+        this.event = new EventService(api);
     }
 
     async authenticate() {
