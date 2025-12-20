@@ -13,6 +13,20 @@ Simple package for communicating with Bakalari school information system API
 This package also includes some helpers and services for easier integration
 
 
+## Code Structure
+
+The project follows a structured pattern to organize the API client logic:
+
+- Models (`src/models`):
+  - Dtos returned by the Bakalari API endpints, also special models for uses in services
+- Resources (`src/resources`): 
+  - Specific endpoints areas of the Bakalari API (e.g., `/3/timetable` - `TimetableResource`, `/3/event/` - `EventResource`) 
+- Services (`src/services`): 
+  - They contain the resource and can also provide additional logic on top
+- BakalariClient (`src/bakalari.client.ts`): 
+  - Main entry point consumer of this pacakge will use - contains all the services and authentication logic
+
+
 ## Getting started
 Install using npm:
 
