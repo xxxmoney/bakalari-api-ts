@@ -5,6 +5,7 @@ import { LoginService } from './services/login.service';
 import { AbsenceService } from './services/absence.service';
 import { ClassbookService } from './services/classbook.service';
 import { EventService } from './services/event.service';
+import { GdprService } from './services/gdpr.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -14,6 +15,7 @@ export class BakalariClient {
     public readonly absence: AbsenceService;
     public readonly classbook: ClassbookService;
     public readonly event: EventService;
+    public readonly gdpr: GdprService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -24,6 +26,7 @@ export class BakalariClient {
         this.absence = new AbsenceService(api);
         this.classbook = new ClassbookService(api);
         this.event = new EventService(api);
+        this.gdpr = new GdprService(api);
     }
 
     async authenticate() {
