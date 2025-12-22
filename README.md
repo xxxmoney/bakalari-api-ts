@@ -59,24 +59,25 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 
 
 ## Supported Endpoints
+(⏳ -> 🔨 -> ️⚠️ | ✅)
 
 | Status | Method | Endpoint |
 | :---- | :---- | :---- |
 | ⏳ | GET | /api |
 | ⏳ | GET | /api/3 |
-| ⏳ | GET | /api/3/absence/student |
-| ⏳ | GET | /api/3/classbook |
-| ⏳ | GET | /api/3/classbook/lessonTags |
-| ⏳ | GET | /api/3/events |
-| ⏳ | GET | /api/3/events/my |
-| ⏳ | GET | /api/3/events/public |
-| ⏳ | GET | /api/3/gdpr/commissioner |
-| ⏳ | POST | /api/3/gdpr/commissioner/send-objection |
-| ⏳ | POST | /api/3/gdpr/commissioner/send-report |
-| ⏳ | GET | /api/3/gdpr/commissioners |
-| ⏳ | GET | /api/3/gdpr/consent |
-| ⏳ | GET | /api/3/gdpr/consents/person |
-| ⏳ | GET | /api/3/gdpr/consents/person/child |
+| ⚠️ | GET | /api/3/absence/student |
+| ✅ | GET | /api/3/classbook |
+| ✅ | GET | /api/3/classbook/lessonTags |
+| ✅ | GET | /api/3/events |
+| ✅ | GET | /api/3/events/my |
+| ✅ | GET | /api/3/events/public |
+| 🔨 | GET | /api/3/gdpr/commissioner |
+| 🔨 | POST | /api/3/gdpr/commissioner/send-objection |
+| 🔨 | POST | /api/3/gdpr/commissioner/send-report |
+| 🔨 | GET | /api/3/gdpr/commissioners |
+| 🔨 | GET | /api/3/gdpr/consent |
+| 🔨 | GET | /api/3/gdpr/consents/person |
+| 🔨 | GET | /api/3/gdpr/consents/person/child |
 | ⏳ | GET | /api/3/homeworks |
 | ⏳ | GET | /api/3/homeworks/count-actual |
 | ⏳ | GET | /api/3/komens/attachment/{id} |

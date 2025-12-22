@@ -106,12 +106,13 @@ describe('BakalariClient.event.resource', () => {
         //
         // eslint-disable-next-line no-undef
         const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+        const date = DateTime.fromISO('2025-12-01');
 
         //
         // Act
         //
         await client.authenticate();
-        const result = await client.event.resource.getEvents();
+        const result = await client.event.resource.getEvents(date);
 
         //
         // Assert

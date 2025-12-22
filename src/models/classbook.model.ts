@@ -1,10 +1,10 @@
 
-export interface Classbook {
-    days: ClassbookDay[];
-    hours: ClassbookHour[];
+export interface ClassbookDto {
+    days: ClassbookDayDto[];
+    hours: ClassbookHourDto[];
 }
 
-export interface ClassbookDay {
+export interface ClassbookDayDto {
     date: string;
     dayOfWeek: number;
     dayDescription: string;
@@ -12,7 +12,7 @@ export interface ClassbookDay {
     hours: unknown[];
 }
 
-export interface ClassbookHour {
+export interface ClassbookHourDto {
     id: number;
     caption: string;
     beginTime: string;
