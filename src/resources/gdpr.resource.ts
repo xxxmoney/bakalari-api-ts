@@ -6,8 +6,7 @@ export class GdprResource {
     constructor(api: Api) {
         this.api = api;
     }
- 
-    // GET /3/gdpr/commissioner
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getCommissioner(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/gdpr/commissioner');
@@ -15,7 +14,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // POST /3/gdpr/commissioner/send-objection
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async sendObjection(data: any): Promise<any> { // TODO: Define body and return type
         const response = await this.api.client.post('/3/gdpr/commissioner/send-objection', data);
@@ -23,7 +21,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // POST /3/gdpr/commissioner/send-report
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async sendReport(data: any): Promise<any> { // TODO: Define body and return type
         const response = await this.api.client.post('/3/gdpr/commissioner/send-report', data);
@@ -31,7 +28,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // GET /3/gdpr/commissioners
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getCommissioners(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/gdpr/commissioners');
@@ -39,7 +35,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // GET /3/gdpr/consent
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getConsent(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/gdpr/consent');
@@ -47,7 +42,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // GET /3/gdpr/consents/person
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getPersonConsents(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/gdpr/consents/person');
@@ -55,7 +49,6 @@ export class GdprResource {
         return response.data;
     }
 
-    // GET /3/gdpr/consents/person/child
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async getPersonChildConsents(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/gdpr/consents/person/child');

@@ -1,6 +1,6 @@
 import type { Api } from '../api/base.api';
 import { objectToCamel } from 'ts-case-convert';
-import type { Absence } from '../models/absence-student.model';
+import type { AbsencesDto } from '../models/absence-student.model';
 
 export class AbsenceResource {
     private readonly api: Api;
@@ -9,9 +9,9 @@ export class AbsenceResource {
         this.api = api;
     }
 
-    async getStudentAbsences(): Promise<Absence> {
+    async getStudentAbsences(): Promise<AbsencesDto> {
         const response = await this.api.client.get('/3/absence/student');
 
-        return objectToCamel<Absence>(response.data);
+        return objectToCamel<AbsencesDto>(response.data);
     }
 }

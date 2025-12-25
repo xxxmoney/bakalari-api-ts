@@ -1,11 +1,11 @@
 
-export interface Absence {
+export interface AbsencesDto {
     percentageThreshold: number;
-    absences: AbsenceItem[];
-    absencesPerSubject: AbsencePerSubject[];
+    absences: AbsenceDto[];
+    absencesPerSubject: AbsencePerSubjectDto[];
 }
 
-export interface AbsenceItem {
+export interface AbsenceDto {
     date: string;
     unsolved: number;
     ok: number;
@@ -16,7 +16,7 @@ export interface AbsenceItem {
     distanceTeaching: number;
 }
 
-export interface AbsencePerSubject {
+export interface AbsencePerSubjectDto {
     subjectName: string;
     lessonsCount: number;
     base: number;
