@@ -9,6 +9,8 @@ export class Api {
             baseURL: baseUrl,
             timeout: constants.TIMEOUT,
         });
+
+        this.setInterceptors();
     }
 
     setAuthToken(token: string | null) {
@@ -19,5 +21,22 @@ export class Api {
             // Remove the header (e.g., on logout)
             delete this.client.defaults.headers.common['Authorization'];
         }
+    }
+
+    private setInterceptors() {
+        // Add details to axios error responses
+        this.client.interceptors.response.use(
+            res => res,
+            err => {
+                const details = {
+                    url: err.config?.url,
+                    method: err.config?.method,
+                    status: err.response?.status,
+                    data: err.response?.data
+                };
+
+                return Promise.reject({ err, details });
+            }
+        );
     }
 }
