@@ -311,12 +311,14 @@ describe('BakalariClient.homework.resource', () => {
         //
         // eslint-disable-next-line no-undef
         const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+        const from = DateTime.fromISO('2025-12-01');
+        const to = DateTime.fromISO('2025-12-05');
 
         //
         // Act
         //
         await client.authenticate();
-        const result = await client.homework.resource.getHomeworks();
+        const result = await client.homework.resource.getHomeworks(from, to);
 
         //
         // Assert

@@ -12,10 +12,9 @@ export class TimetableResource {
     }
 
     async getWeekTimetable(date: DateTime): Promise<TimeTableDto> {
-        const formattedDate = date.toFormat(constants.DATE_FORMAT);
         const response = await this.api.client.get('/3/timetable/actual', {
             params: {
-                date: formattedDate
+                date: date.toFormat(constants.DATE_FORMAT)
             }
         });
 
