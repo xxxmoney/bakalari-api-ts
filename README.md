@@ -78,8 +78,8 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ⚠️ | GET | /api/3/gdpr/consent |
 | ⚠️ | GET | /api/3/gdpr/consents/person |
 | ⚠️ | GET | /api/3/gdpr/consents/person/child |
-| 🔨 | GET | /api/3/homeworks |
-| 🔨 | GET | /api/3/homeworks/count-actual |
+| ⚠️ | GET | /api/3/homeworks |
+| ⚠️ | GET | /api/3/homeworks/count-actual |
 | ⏳ | GET | /api/3/komens/attachment/{id} |
 | ⏳ | POST | /api/3/komens/message |
 | ⏳ | GET | /api/3/komens/message/{id} |
