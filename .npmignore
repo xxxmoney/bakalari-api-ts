@@ -12,3 +12,4 @@ jest.config.js
 .git/
 .env.example
 .env
+other/
