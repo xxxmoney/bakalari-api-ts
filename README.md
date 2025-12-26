@@ -96,7 +96,7 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ⚠️ | GET    | /api/3/komens/messages/sent/{id} |
 | ⚠️ | GET    | /api/3/komens/messages/received/unread |
 | ⚠️ | POST   | /api/3/komens/messages/sent |
-| 🔨 | GET    | /api/3/komens/rating-templates |
+| ⚠️ | GET    | /api/3/komens/rating-templates |
 | ⏳ | GET    | /api/3/lesson/... |
 | ✅ | POST   | /api/3/login |
 | ⏳ | GET    | /api/3/logintoken |
