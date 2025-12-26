@@ -23,21 +23,17 @@ export class KomensResource {
     }
 
     async sendMessage(data: KomensSendMessageDto): Promise<void> {
-        await this.api.client.post('/3/komens/message', data, {
-            headers: { 'Content-Type': 'application/json; charset=utf-8' }
-        });
+        await this.api.client.post('/3/komens/message', data);
     }
 
-    async getMessageById(id: string): Promise<KomensMessagesDto> {
+    async getMessage(id: string): Promise<KomensMessagesDto> {
         const response = await this.api.client.get(`/3/komens/message/${id}`);
 
         return objectToCamel<KomensMessagesDto>(response.data);
     }
 
     async markMessageAsRead(id: string): Promise<void> {
-        await this.api.client.put(`/3/komens/message/${id}/mark-as-read`, {}, {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        });
+        await this.api.client.put(`/3/komens/message/${id}/mark-as-read`, new URLSearchParams());
     }
 
     async getMessageTypes(): Promise<KomensMessageTypesDto> {
@@ -46,26 +42,34 @@ export class KomensResource {
         return objectToCamel<KomensMessageTypesDto>(response.data);
     }
 
-    async getMessageByIdAndType(id: string, type: 'received' | 'sent'): Promise<KomensMessageDetailResponseDto> {
-        const response = await this.api.client.get(`/3/komens/messages/${type}/${id}`, {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async editMessageType(edit: any): Promise<any> { // TODO: Define return type
+        const response = await this.api.client.post('/3/komens/message-types/edit', edit);
+
+        return objectToCamel<any>(response.data);
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async replyMessageType(reply: any): Promise<any> { // TODO: Define return type
+        const response = await this.api.client.post('/3/komens/message-types/reply', reply);
+
+        return objectToCamel<any>(response.data);
+    }
+
+    async getMessageForType(id: string, type: 'received' | 'sent'): Promise<KomensMessageDetailResponseDto> {
+        const response = await this.api.client.get(`/3/komens/messages/${type}/${id}`);
 
         return objectToCamel<KomensMessageDetailResponseDto>(response.data);
     }
 
-    async getMessages(type: 'noticeboard' | 'received' | 'sent'): Promise<KomensMessagesDto> {
-        const response = await this.api.client.post(`/3/komens/messages/${type}`, {}, {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        });
+    async getMessages(type: 'apology' | 'noticeboard' | 'rating' | 'received' | 'sent'): Promise<KomensMessagesDto> {
+        const response = await this.api.client.post(`/3/komens/messages/${type}`, new URLSearchParams());
 
         return objectToCamel<KomensMessagesDto>(response.data);
     }
 
     async getUnreadMessagesCount(type: 'noticeboard' | 'received'): Promise<number> {
-        const response = await this.api.client.get(`/3/komens/messages/${type}/unread`, {
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        });
+        const response = await this.api.client.get(`/3/komens/messages/${type}/unread`);
 
         return response.data;
     }
