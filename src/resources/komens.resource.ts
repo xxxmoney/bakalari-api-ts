@@ -73,4 +73,11 @@ export class KomensResource {
 
         return response.data;
     }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async getRatingTemplates(): Promise<any> { // TODO: Define return type
+        const response = await this.api.client.get('/3/komens/rating-templates');
+
+        return objectToCamel<any>(response.data);
+    }
 }
