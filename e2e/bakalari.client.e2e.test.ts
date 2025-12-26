@@ -347,3 +347,5 @@ describe('BakalariClient.homework.resource', () => {
         expect(result).toBeDefined();
     });
 });
+
+// TODO: add tests for BakalariClient.komens.resource

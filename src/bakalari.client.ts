@@ -7,6 +7,7 @@ import { ClassbookService } from './services/classbook.service';
 import { EventService } from './services/event.service';
 import { GdprService } from './services/gdpr.service';
 import { HomeworkService } from './services/homework.service';
+import { KomensService } from './services/komens.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -18,6 +19,7 @@ export class BakalariClient {
     public readonly event: EventService;
     public readonly gdpr: GdprService;
     public readonly homework: HomeworkService;
+    public readonly komens: KomensService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -30,6 +32,7 @@ export class BakalariClient {
         this.event = new EventService(api);
         this.gdpr = new GdprService(api);
         this.homework = new HomeworkService(api);
+        this.komens = new KomensService(api);
     }
 
     async authenticate() {

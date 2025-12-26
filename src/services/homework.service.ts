@@ -1,6 +1,7 @@
 import { Api } from '../api/base.api';
 import { HomeworkResource } from '../resources/homework.resource';
-import { HomeworkCountDto, HomeworkDto } from '../models/homework.model';
+import type { HomeworkCountDto, HomeworksDto } from '../models/homework.model';
+import { DateTime } from 'luxon';
 
 export class HomeworkService {
     public readonly resource: HomeworkResource;
@@ -9,8 +10,8 @@ export class HomeworkService {
         this.resource = new HomeworkResource(api);
     }
 
-    async getHomeworks(): Promise<HomeworkDto[]> {
-        return this.resource.getHomeworks();
+    async getHomeworks(from: DateTime, to: DateTime): Promise<HomeworksDto> {
+        return this.resource.getHomeworks(from, to);
     }
 
     async getHomeworksCountActual(): Promise<HomeworkCountDto> {
