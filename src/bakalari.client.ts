@@ -11,8 +11,7 @@ import { KomensService } from './services/komens.service';
 
 // Export services as single unified service
 export class BakalariClient {
-    private readonly login: LoginService;
-
+    public readonly login: LoginService;
     public readonly timetable: TimetableService;
     public readonly absence: AbsenceService;
     public readonly classbook: ClassbookService;
@@ -25,7 +24,6 @@ export class BakalariClient {
         const api = new Api(baseUrl);
 
         this.login = new LoginService(api, credentials);
-
         this.timetable = new TimetableService(api);
         this.absence = new AbsenceService(api);
         this.classbook = new ClassbookService(api);

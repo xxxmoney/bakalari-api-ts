@@ -25,4 +25,10 @@ export class LoginResource {
 
         return data;
     }
+
+    async getLoginToken(): Promise<string> {
+        const response = await this.api.client.get('/3/logintoken');
+
+        return response.data;
+    }
 }
