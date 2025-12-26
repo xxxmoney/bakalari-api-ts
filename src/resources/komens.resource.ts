@@ -46,14 +46,14 @@ export class KomensResource {
     async editMessageType(edit: any): Promise<any> { // TODO: Define return type
         const response = await this.api.client.post('/3/komens/message-types/edit', edit);
 
-        return objectToCamel<any>(response.data);
+        return objectToCamel(response.data);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async replyMessageType(reply: any): Promise<any> { // TODO: Define return type
         const response = await this.api.client.post('/3/komens/message-types/reply', reply);
 
-        return objectToCamel<any>(response.data);
+        return objectToCamel(response.data);
     }
 
     async getMessageForType(id: string, type: 'received' | 'sent'): Promise<KomensMessageDetailResponseDto> {
@@ -78,6 +78,6 @@ export class KomensResource {
     async getRatingTemplates(): Promise<any> { // TODO: Define return type
         const response = await this.api.client.get('/3/komens/rating-templates');
 
-        return objectToCamel<any>(response.data);
+        return objectToCamel(response.data);
     }
 }
