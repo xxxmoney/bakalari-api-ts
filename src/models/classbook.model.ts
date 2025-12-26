@@ -9,7 +9,7 @@ export interface ClassbookDayDto {
     dayOfWeek: number;
     dayDescription: string;
     dayType: string;
-    hours: unknown[];
+    hours: unknown[]; // TODO: Define
 }
 
 export interface ClassbookHourDto {

@@ -67,7 +67,7 @@ export interface KomensSendMessageDto {
     sendAsDirector: boolean;
     requireConfirmation: boolean;
     typeOfRatingId: string | null;
-    scale: unknown | null;
+    scale: unknown | null; // TODO: Define
     attachments: unknown[]; // TODO: Define attachment upload structure if known
     draftDate: string | null;
 }
@@ -106,7 +106,7 @@ export interface KomensRecipientProcessedDto {
     recipientId: string;
     userType: string;
     actionDate: string | null;
-    parentPersons: unknown[];
+    parentPersons: unknown[]; // TODO: Define
 }
 
 export interface KomensRecipientTypeItemDto {
@@ -126,3 +126,13 @@ export interface KomensRecipientTypeDto {
     typeOfSelection: string;
     recipients: KomensRecipientTypeItemDto[];
 }
+
+export interface RatingTemplatesDto {
+    templates: unknown[]; // TODO: Define
+}
+
+export type MessageType = 'apology' | 'noticeboard' | 'rating' | 'received' | 'sent';
+
+export type MessageSpecificType = 'received' | 'sent';
+
+export type MessageUnreadType = 'noticeboard' | 'received';

@@ -1,3 +1,5 @@
+import type {MessageSpecificType, MessageType, MessageUnreadType} from "../src/models/komens.model";
+
 jest.unmock('axios');
 
 import { BakalariClient } from '../src';
@@ -348,4 +350,123 @@ describe('BakalariClient.homework.resource', () => {
     });
 });
 
-// TODO: add tests for BakalariClient.komens.resource
+describe('BakalariClient.komens.resource', () => {
+    test.each([
+        ['apology'],
+        ['noticeboard'],
+        ['rating'],
+        ['received'],
+        ['sent']
+    ])('getMessages', async (type: string) => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.komens.resource.getMessages(type as MessageType);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test.each([
+        ['received'],
+        ['sent']
+    ])('getMessageForType', async (type: string) => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const messages = await client.komens.resource.getMessages(type as MessageType);
+
+        if (messages.messages.length > 0) {
+            const messageId = messages.messages[0].id;
+            const result = await client.komens.resource.getMessageForType(messageId, type as MessageSpecificType);
+
+            //
+            // Assert
+            //
+            console.log(JSON.stringify(result, null, 2));
+            expect(result).toBeDefined();
+        } else {
+            console.warn('No received messages found to test getMessageForType');
+        }
+    });
+
+    test.each([
+        ['noticeboard'],
+        ['received']
+    ])('getUnreadMessagesCount', async (type: string) => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.komens.resource.getUnreadMessagesCount(type as MessageUnreadType);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getMessageTypes', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.komens.resource.getMessageTypes();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getRatingTemplates', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.komens.resource.getRatingTemplates();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});

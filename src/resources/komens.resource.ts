@@ -4,7 +4,7 @@ import type {
     KomensMessageDetailResponseDto,
     KomensMessagesDto,
     KomensMessageTypesDto,
-    KomensSendMessageDto
+    KomensSendMessageDto, MessageSpecificType, MessageType, MessageUnreadType, RatingTemplatesDto
 } from '../models/komens.model';
 
 export class KomensResource {
@@ -56,28 +56,27 @@ export class KomensResource {
         return objectToCamel(response.data);
     }
 
-    async getMessageForType(id: string, type: 'received' | 'sent'): Promise<KomensMessageDetailResponseDto> {
+    async getMessageForType(id: string, type: MessageSpecificType): Promise<KomensMessageDetailResponseDto> {
         const response = await this.api.client.get(`/3/komens/messages/${type}/${id}`);
 
         return objectToCamel<KomensMessageDetailResponseDto>(response.data);
     }
 
-    async getMessages(type: 'apology' | 'noticeboard' | 'rating' | 'received' | 'sent'): Promise<KomensMessagesDto> {
+    async getMessages(type: MessageType): Promise<KomensMessagesDto> {
         const response = await this.api.client.post(`/3/komens/messages/${type}`, new URLSearchParams());
 
         return objectToCamel<KomensMessagesDto>(response.data);
     }
 
-    async getUnreadMessagesCount(type: 'noticeboard' | 'received'): Promise<number> {
+    async getUnreadMessagesCount(type: MessageUnreadType): Promise<number> {
         const response = await this.api.client.get(`/3/komens/messages/${type}/unread`);
 
         return response.data;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async getRatingTemplates(): Promise<any> { // TODO: Define return type
+    async getRatingTemplates(): Promise<RatingTemplatesDto> {
         const response = await this.api.client.get('/3/komens/rating-templates');
 
-        return objectToCamel(response.data);
+        return objectToCamel<RatingTemplatesDto>(response.data);
     }
 }
