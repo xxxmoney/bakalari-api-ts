@@ -11,7 +11,7 @@ export class TimetableResource {
         this.api = api;
     }
 
-    async getCurrentWeekTimetable(date: DateTime): Promise<TimeTableDto> {
+    async getWeekTimetable(date: DateTime): Promise<TimeTableDto> {
         const response = await this.api.client.get('/3/timetable/actual', {
             params: {
                 date: date.toFormat(constants.DATE_FORMAT)

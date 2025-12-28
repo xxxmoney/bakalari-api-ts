@@ -46,7 +46,7 @@ describe('BakalariClient.timetable', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.timetable.getCurrentMonthTimetableSummary(date);
+        const result = await client.timetable.getMonthTimetableSummary(date);
 
         //
         // Assert
@@ -69,7 +69,7 @@ describe('BakalariClient.timetable.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.timetable.resource.getCurrentWeekTimetable(date);
+        const result = await client.timetable.resource.getWeekTimetable(date);
 
         //
         // Assert
@@ -854,5 +854,27 @@ describe('BakalariClient.subject.resource', () => {
             console.log(JSON.stringify(result, null, 2));
             expect(result).toBeDefined();
         });
+    });
+});
+
+describe('BakalariClient.user.resource', () => {
+    test('getUser', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.user.resource.getCurrentUser();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
     });
 });
