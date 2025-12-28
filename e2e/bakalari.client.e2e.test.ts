@@ -1,4 +1,4 @@
-import type {MessageSpecificType, MessageType, MessageUnreadType} from "../src/models/komens.model";
+import type { MessageSpecificType, MessageType, MessageUnreadType } from '../src/models/komens.model';
 
 jest.unmock('axios');
 
@@ -484,6 +484,61 @@ describe('BakalariClient.komens.resource', () => {
         //
         await client.authenticate();
         const result = await client.komens.resource.getRatingTemplates();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});
+
+describe('BakalariClient.marking.resource', () => {
+    test('getAtomClasses', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.marking.resource.getAtomClasses();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getMarkingsForClass', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.marking.resource.getAtomClasses();
+
+        if (result.atoms.length > 0) {
+            const markId = result.atoms[1].id;
+            const atom = await client.marking.resource.getMarkingsForClass(markId);
+
+            //
+            // Assert
+            //
+            console.log(JSON.stringify(atom, null, 2));
+            expect(atom).toBeDefined();
+        } else {
+            console.warn('No received messages found to test getMessageForType');
+        }
 
         //
         // Assert

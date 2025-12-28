@@ -100,8 +100,8 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ⏳ | GET    | /api/3/lesson/... |
 | ✅ | POST   | /api/3/login |
 | ✅ | GET    | /api/3/logintoken |
-| ⏳ | GET    | /api/3/marking/atoms |
-| ⏳ | GET    | /api/3/marking/marks/{id} |
+| ✅ | GET    | /api/3/marking/atoms |
+| ✅ | GET    | /api/3/marking/marks/{id} |
 | ⏳ | GET    | /api/3/marks |
 | ⏳ | GET    | /api/3/marks/count-new |
 | ⏳ | GET    | /api/3/marks/final |
