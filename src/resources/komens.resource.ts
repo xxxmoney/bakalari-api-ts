@@ -43,14 +43,14 @@ export class KomensResource {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public async editMessageType(edit: any): Promise<any> { // TODO: Define return type
+    public async editMessageType(edit: any): Promise<any> { // TODO: Define type
         const response = await this.api.client.post('/3/komens/message-types/edit', edit);
 
         return objectToCamel(response.data);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public async replyMessageType(reply: any): Promise<any> { // TODO: Define return type
+    public async replyMessageType(reply: any): Promise<any> { // TODO: Define type
         const response = await this.api.client.post('/3/komens/message-types/reply', reply);
 
         return objectToCamel(response.data);

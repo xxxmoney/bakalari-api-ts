@@ -115,14 +115,14 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ⚠️ | GET    | /api/3/payments/classfund |
 | ⚠️ | GET    | /api/3/payments/classfund/paymentsinfo |
 | ⚠️ | GET    | /api/3/payments/classfund/summary |
-| ⏳ | POST   | /api/3/register-notification |
+| ⚠️ | POST   | /api/3/register-notification |
 | ⏳ | GET    | /api/3/subjects |
 | ⏳ | GET    | /api/3/subjects/themes/{id} |
 | ⏳ | GET    | /api/3/substitutions |
 | ✅ | GET    | /api/3/timetable/actual |
 | ⏳ | GET    | /api/3/timetable/permanent |
 | ⏳ | GET    | /Timetable/Public/ |
-| ⏳ | DELETE | /api/3/unregister-user-notification |
+| ⚠️ | DELETE | /api/3/unregister-user-notification |
 | ⏳ | GET    | /api/3/user |
 | ⏳ | GET    | /api/3/webmodule |
 
@@ -167,7 +167,7 @@ export class GdprResource {
     }
 
     // GET /3/gdpr/commissioner
-    async getCommissioner(): Promise<any> { // TODO: Define return type
+    async getCommissioner(): Promise<any> { // TODO: Define type
         const response = await this.api.client.get('/3/gdpr/commissioner');
         return objectToCamel(response.data);
     }

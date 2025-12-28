@@ -22,7 +22,7 @@ export class HomeworkResource {
         return objectToCamel<HomeworksDto>(response.data);
     }
 
-    public async getHomeworksCountActual(): Promise<HomeworkCountDto> { // TODO: Define return type
+    public async getHomeworksCountActual(): Promise<HomeworkCountDto> { // TODO: Define type
         const response = await this.api.client.get<HomeworkCountDto>('/3/homeworks/count-actual');
 
         return objectToCamel<HomeworkCountDto>(response.data);
