@@ -1,6 +1,6 @@
 import type { Api } from '../api/base.api';
 import type { DateTime } from 'luxon';
-import type { SubstitutionsDto } from '../models/substitutions.model';
+import type { SubstitutionsDto } from '../models/substitution.model';
 import * as constants from '../constants';
 import { objectToCamel } from 'ts-case-convert';
 

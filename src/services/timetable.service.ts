@@ -12,24 +12,20 @@ export class TimetableService {
         this.resource = new TimetableResource(api);
     }
 
-    /**
-     * Get timetable summary for the month of the given date
-     * @param currentDay
-     */
-    public async getMonthTimetableSummary(currentDay: DateTime): Promise<TimeTableSummary> {
-        const monthTimetable: TimeTableSummary = { days: [] };
+    public async getMonthTimetableSummary(dayOfMonth: DateTime): Promise<TimeTableSummary> {
+        const month: TimeTableSummary = { days: [] };
 
         // TODO: maybe parallelize this?
-        for (const date of getStartOfWeeksInMonth(currentDay)) {
-            const timetable = await this.resource.getWeekTimetable(date);
+        for (const date of getStartOfWeeksInMonth(dayOfMonth)) {
+            const week = await this.resource.getWeekTimetable(date);
             const { days } = mapper.mapTimeTableResponseToSummary(
-                timetable
+                week
             );
 
-            monthTimetable.days.push(...days);
+            month.days.push(...days);
         }
 
-        return monthTimetable;
+        return month;
     }
 
 }

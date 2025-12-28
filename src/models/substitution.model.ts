@@ -14,4 +14,5 @@ export interface SubstitutionDto {
     time: string;
     typeAbbrev: string | null;
     typeName: string | null;
+    atomType: string | null;
 }
