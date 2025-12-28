@@ -46,7 +46,7 @@ describe('BakalariClient.timetable', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.timetable.getMonthTimetableSummary(date);
+        const result = await client.timetable.getCurrentMonthTimetableSummary(date);
 
         //
         // Assert
@@ -57,7 +57,7 @@ describe('BakalariClient.timetable', () => {
 });
 
 describe('BakalariClient.timetable.resource', () => {
-    test('getWeekTimetable', async () => {
+    test('getCurrentWeekTimetable', async () => {
         //
         // Arrange
         //
@@ -69,7 +69,27 @@ describe('BakalariClient.timetable.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.timetable.resource.getWeekTimetable(date);
+        const result = await client.timetable.resource.getCurrentWeekTimetable(date);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getPermanentTimetable', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.timetable.resource.getPermanentTimetable();
 
         //
         // Assert

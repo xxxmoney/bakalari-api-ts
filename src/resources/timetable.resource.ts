@@ -11,7 +11,7 @@ export class TimetableResource {
         this.api = api;
     }
 
-    async getWeekTimetable(date: DateTime): Promise<TimeTableDto> {
+    async getCurrentWeekTimetable(date: DateTime): Promise<TimeTableDto> {
         const response = await this.api.client.get('/3/timetable/actual', {
             params: {
                 date: date.toFormat(constants.DATE_FORMAT)
@@ -20,4 +20,11 @@ export class TimetableResource {
 
         return objectToCamel<TimeTableDto>(response.data);
     }
+
+    async getPermanentTimetable(): Promise<TimeTableDto> {
+        const response = await this.api.client.get('/3/timetable/permanent');
+
+        return objectToCamel<TimeTableDto>(response.data);
+    }
+
 }

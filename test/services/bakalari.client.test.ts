@@ -33,7 +33,7 @@ describe('BakalariClient', () => {
         const client = new BakalariClient('https://hustlers-university.ca/IS', { username: 'user', password: 'pass' });
 
         await client.authenticate();
-        const result = await client.timetable.getMonthTimetableSummary(date);
+        const result = await client.timetable.getCurrentMonthTimetableSummary(date);
 
         //
         // Assert
