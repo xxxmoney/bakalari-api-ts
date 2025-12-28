@@ -120,7 +120,7 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ⚠️ | GET    | /api/3/subjects/themes/{id} |
 | ✅ | GET    | /api/3/substitutions |
 | ✅ | GET    | /api/3/timetable/actual |
-| ⏳ | GET    | /api/3/timetable/permanent |
+| ✅ | GET    | /api/3/timetable/permanent |
 | ⏳ | GET    | /Timetable/Public/ |
 | ⚠️ | DELETE | /api/3/unregister-user-notification |
 | ⏳ | GET    | /api/3/user |
