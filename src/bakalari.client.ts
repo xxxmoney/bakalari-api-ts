@@ -12,6 +12,7 @@ import { MarkingService } from './services/marking.service';
 import { MarksService } from './services/marks.service';
 import { PaymentsService } from './services/payments.service';
 import { NotificationService } from './services/notification.service';
+import { SubjectsService } from './services/subjects.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -27,6 +28,7 @@ export class BakalariClient {
     public readonly marks: MarksService;
     public readonly payments: PaymentsService;
     public readonly notification: NotificationService;
+    public readonly subjects: SubjectsService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -43,6 +45,7 @@ export class BakalariClient {
         this.marks = new MarksService(api);
         this.payments = new PaymentsService(api);
         this.notification = new NotificationService(api);
+        this.subjects = new SubjectsService(api);
     }
 
     public async authenticate() {

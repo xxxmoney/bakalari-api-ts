@@ -425,7 +425,7 @@ describe('BakalariClient.komens.resource', () => {
             console.log(JSON.stringify(result, null, 2));
             expect(result).toBeDefined();
         } else {
-            console.warn('No received messages found to test getMessageForType');
+            console.warn('No data found');
         }
     });
 
@@ -528,7 +528,7 @@ describe('BakalariClient.marking.resource', () => {
         const result = await client.marking.resource.getAtomClasses();
 
         if (result.atoms.length > 0) {
-            const markId = result.atoms[1].id;
+            const markId = result.atoms[0].id;
             const atom = await client.marking.resource.getMarksForClass(markId);
 
             //
@@ -537,7 +537,7 @@ describe('BakalariClient.marking.resource', () => {
             console.log(JSON.stringify(atom, null, 2));
             expect(atom).toBeDefined();
         } else {
-            console.warn('No received messages found to test getMessageForType');
+            console.warn('No data found');
         }
 
         //
@@ -727,6 +727,61 @@ describe('BakalariClient.payments.resource', () => {
         //
         await client.authenticate();
         const result = await client.payments.resource.getClassfundSentSummary();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});
+
+describe('BakalariClient.subjects.resource', () => {
+    test('getSubjects', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.subjects.resource.getSubjects();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getSubjectThemes', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.subjects.resource.getSubjects();
+
+        if (result.subjects.length > 0) {
+            const subjectId = result.subjects[0].subjectId;
+            const theme = await client.subjects.resource.getSubjectThemes(subjectId);
+
+            //
+            // Assert
+            //
+            console.log(JSON.stringify(theme, null, 2));
+            expect(theme).toBeDefined();
+        } else {
+            console.warn('No data found');
+        }
 
         //
         // Assert
