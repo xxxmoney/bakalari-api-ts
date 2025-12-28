@@ -605,7 +605,7 @@ describe('BakalariClient.marks.resource', () => {
         //
         // Assert
         //
-        console.log(result);
+        console.log(JSON.stringify(result, null, 2));
         expect(result).toBeDefined();
     });
 
@@ -625,7 +625,7 @@ describe('BakalariClient.marks.resource', () => {
         //
         // Assert
         //
-        console.log(result);
+        console.log(JSON.stringify(result, null, 2));
         expect(result).toBeDefined();
     });
 
@@ -668,7 +668,70 @@ describe('BakalariClient.marks.resource', () => {
         //
         // Assert
         //
-        console.log(result);
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});
+
+describe('BakalariClient.payments.resource', () => {
+    test('getClassfundOverviewPerMonth', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+        const search = 'test';
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.payments.resource.getClassfundOverviewPerMonth(search);
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getPaymentsInfo', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.payments.resource.getPaymentsInfo();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+
+    test('getClassfundSentSummary', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.payments.resource.getClassfundSentSummary();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
         expect(result).toBeDefined();
     });
 });
