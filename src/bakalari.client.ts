@@ -26,11 +26,11 @@ export class BakalariClient {
     public readonly homework: HomeworkService;
     public readonly komens: KomensService;
     public readonly marking: MarkingService;
-    public readonly marks: MarksService;
-    public readonly payments: PaymentService;
+    public readonly mark: MarksService;
+    public readonly payment: PaymentService;
     public readonly notification: NotificationService;
-    public readonly subjects: SubjectsService;
-    public readonly substitutions: SubstitutionService;
+    public readonly subject: SubjectsService;
+    public readonly substitution: SubstitutionService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -44,11 +44,11 @@ export class BakalariClient {
         this.homework = new HomeworkService(api);
         this.komens = new KomensService(api);
         this.marking = new MarkingService(api);
-        this.marks = new MarksService(api);
-        this.payments = new PaymentService(api);
+        this.mark = new MarksService(api);
+        this.payment = new PaymentService(api);
         this.notification = new NotificationService(api);
-        this.subjects = new SubjectsService(api);
-        this.substitutions = new SubstitutionService(api);
+        this.subject = new SubjectsService(api);
+        this.substitution = new SubstitutionService(api);
     }
 
     public async authenticate() {

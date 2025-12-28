@@ -568,7 +568,7 @@ describe('BakalariClient.marking.resource', () => {
     });
 });
 
-describe('BakalariClient.marks.resource', () => {
+describe('BakalariClient.mark.resource', () => {
     test('getSubjectsmarks', async () => {
         //
         // Arrange
@@ -580,7 +580,7 @@ describe('BakalariClient.marks.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.marks.resource.getSubjectsMarks();
+        const result = await client.mark.resource.getSubjectsMarks();
 
         //
         // Assert
@@ -600,7 +600,7 @@ describe('BakalariClient.marks.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.marks.resource.getNewMarksCount();
+        const result = await client.mark.resource.getNewMarksCount();
 
         //
         // Assert
@@ -620,7 +620,7 @@ describe('BakalariClient.marks.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.marks.resource.getFinals();
+        const result = await client.mark.resource.getFinals();
 
         //
         // Assert
@@ -640,7 +640,7 @@ describe('BakalariClient.marks.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.marks.resource.getMeasures();
+        const result = await client.mark.resource.getMeasures();
 
         //
         // Assert
@@ -683,7 +683,7 @@ describe('BakalariClient.marks.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.marks.resource.getWhatIfMarks(predictMarks);
+        const result = await client.mark.resource.getWhatIfMarks(predictMarks);
 
         //
         // Assert
@@ -693,7 +693,7 @@ describe('BakalariClient.marks.resource', () => {
     });
 });
 
-describe('BakalariClient.payments.resource', () => {
+describe('BakalariClient.payment.resource', () => {
     test('getClassfundOverviewPerMonth', async () => {
         //
         // Arrange
@@ -706,7 +706,7 @@ describe('BakalariClient.payments.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.payments.resource.getClassfundOverviewPerMonth(search);
+        const result = await client.payment.resource.getClassfundOverviewPerMonth(search);
 
         //
         // Assert
@@ -726,7 +726,7 @@ describe('BakalariClient.payments.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.payments.resource.getPaymentsInfo();
+        const result = await client.payment.resource.getPaymentsInfo();
 
         //
         // Assert
@@ -746,7 +746,7 @@ describe('BakalariClient.payments.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.payments.resource.getClassfundSentSummary();
+        const result = await client.payment.resource.getClassfundSentSummary();
 
         //
         // Assert
@@ -756,7 +756,7 @@ describe('BakalariClient.payments.resource', () => {
     });
 });
 
-describe('BakalariClient.subjects.resource', () => {
+describe('BakalariClient.subject.resource', () => {
     test('getSubjects', async () => {
         //
         // Arrange
@@ -768,7 +768,7 @@ describe('BakalariClient.subjects.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.subjects.resource.getSubjects();
+        const result = await client.subject.resource.getSubjects();
 
         //
         // Assert
@@ -788,11 +788,11 @@ describe('BakalariClient.subjects.resource', () => {
         // Act
         //
         await client.authenticate();
-        const result = await client.subjects.resource.getSubjects();
+        const result = await client.subject.resource.getSubjects();
 
         if (result.subjects.length > 0) {
             const subjectId = result.subjects[0].subjectId;
-            const theme = await client.subjects.resource.getSubjectThemes(subjectId);
+            const theme = await client.subject.resource.getSubjectThemes(subjectId);
 
             //
             // Assert
@@ -823,7 +823,7 @@ describe('BakalariClient.subjects.resource', () => {
             // Act
             //
             await client.authenticate();
-            const result = await client.substitutions.resource.getWeekSubstitutions(date);
+            const result = await client.substitution.resource.getWeekSubstitutions(date);
 
             //
             // Assert
@@ -846,7 +846,7 @@ describe('BakalariClient.subjects.resource', () => {
             // Act
             //
             await client.authenticate();
-            const result = await client.substitutions.getMonthSubstitutions(date);
+            const result = await client.substitution.getMonthSubstitutions(date);
 
             //
             // Assert
