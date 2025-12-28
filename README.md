@@ -12,6 +12,11 @@ Simple package for communicating with Bakalari school information system API
 
 This package also includes some helpers and services for easier integration
 
+## Shoutout to [bakalari-api-v3](https://github.com/bakalari-api/bakalari-api-v3/tree/master)
+Without it, this package would be much harder to create
+
+The bakalari-api-v3 project provided great insights into how the Bakalari (Mobile) API works
+
 
 ## Code Structure
 
@@ -102,11 +107,11 @@ const rawTimetable = await client.timetable.resource.getWeekTimetable(
 | ✅ | GET    | /api/3/logintoken |
 | ✅ | GET    | /api/3/marking/atoms |
 | ✅ | GET    | /api/3/marking/marks/{id} |
-| ⏳ | GET    | /api/3/marks |
-| ⏳ | GET    | /api/3/marks/count-new |
-| ⏳ | GET    | /api/3/marks/final |
-| ⏳ | GET    | /api/3/marks/measures |
-| ⏳ | GET    | /api/3/marks/what-if |
+| ⚠️ | GET    | /api/3/marks |
+| ⚠️ | GET    | /api/3/marks/count-new |
+| 🔨 | GET    | /api/3/marks/final |
+| 🔨 | GET    | /api/3/marks/measures |
+| 🔨 | GET    | /api/3/marks/what-if |
 | ⏳ | GET    | /api/3/payments/classfund |
 | ⏳ | GET    | /api/3/payments/classfund/paymentsinfo |
 | ⏳ | GET    | /api/3/payments/classfund/summary |
