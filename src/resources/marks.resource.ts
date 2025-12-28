@@ -1,5 +1,10 @@
 import type { Api } from '../api/base.api';
-import type { CertificateTermsDto, PedagogicalMeasuresDto, SubjectsMarksDto } from '../models/marks.model';
+import type {
+    CertificateTermsDto,
+    PedagogicalMeasuresDto, PredictedMarksDto,
+    PredictMarksDto,
+    SubjectsMarksDto
+} from '../models/marks.model';
 import { objectToCamel } from 'ts-case-convert';
 
 export class MarksResource {
@@ -33,6 +38,10 @@ export class MarksResource {
         return objectToCamel<PedagogicalMeasuresDto>(response.data);
     }
 
-    public async getWhatIfMarks()
+    public async getWhatIfMarks(marks: PredictMarksDto[]): Promise<PredictedMarksDto> {
+        const response = await this.api.client.post<PredictedMarksDto>('/3/marks/what-if', marks);
+
+        return objectToCamel<PredictedMarksDto>(response.data);
+    }
 
 }

@@ -11,6 +11,25 @@ export interface PedagogicalMeasuresDto {
     pedagogicalMeasures: PedagogicalMeasureDto[];
 }
 
+export interface PredictMarksDto {
+    id: string | null;
+    markText: string;
+    weight: number;
+    maxPoints: number;
+    subjectId: string;
+}
+
+export interface PredictedMarksDto {
+    marks: PredictedMarkDto[];
+    subject: PredictedSubjectInfoDto;
+    averageText: string;
+    temporaryMark: string;
+    subjectNote: string;
+    temporaryMarkNote: string;
+    pointsOnly: boolean;
+    markPredictionEnabled: boolean;
+}
+
 export interface SubjectMarksDto {
     marks: MarkItemDto[];
     subject: SubjectInfoDto;
@@ -47,6 +66,32 @@ export interface PedagogicalMeasureDto {
     date: string;
     typeId: string;
     text: string;
+}
+
+export interface PredictedMarkDto {
+    markDate: string;
+    editDate: string;
+    caption: string | null;
+    theme: string | null;
+    markText: string;
+    teacherId: string | null;
+    type: string | null;
+    typeNote: string | null;
+    weight: number;
+    subjectId: string;
+    isNew: boolean;
+    isPoints: boolean;
+    calculatedMarkText: string;
+    classRankText: string | null;
+    id: string | null;
+    pointsText: string;
+    maxPoints: number;
+}
+
+export interface PredictedSubjectInfoDto {
+    id: string;
+    abbrev: string;
+    name: string;
 }
 
 export interface MarkItemDto {

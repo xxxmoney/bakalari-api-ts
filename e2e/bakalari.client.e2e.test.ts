@@ -628,4 +628,47 @@ describe('BakalariClient.marks.resource', () => {
         console.log(result);
         expect(result).toBeDefined();
     });
+
+    test('getWhatIf', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+        const predictMarks = [
+            {
+                id:null,
+                markText:'3',
+                weight:5,
+                maxPoints:0,
+                subjectId:'28'
+            },
+            {
+                id:null,
+                markText:'3-',
+                weight:3,
+                maxPoints:0,
+                subjectId:'28'
+            },
+            {
+                id:null,
+                markText: '1',
+                weight:3,
+                maxPoints:0,
+                subjectId:'28'
+            }
+        ];
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.marks.resource.getWhatIfMarks(predictMarks);
+
+        //
+        // Assert
+        //
+        console.log(result);
+        expect(result).toBeDefined();
+    });
 });
