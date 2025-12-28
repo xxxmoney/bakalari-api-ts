@@ -9,12 +9,4 @@ export class HomeworkService {
     constructor(api: Api) {
         this.resource = new HomeworkResource(api);
     }
-
-    async getHomeworks(from: DateTime, to: DateTime): Promise<HomeworksDto> {
-        return this.resource.getHomeworks(from, to);
-    }
-
-    async getHomeworksCountActual(): Promise<HomeworkCountDto> {
-        return this.resource.getHomeworksCountActual();
-    }
 }

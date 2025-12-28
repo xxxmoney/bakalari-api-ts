@@ -1,6 +1,6 @@
 import type { Api } from '../api/base.api';
 import { objectToCamel } from 'ts-case-convert';
-import type { AtomsDto, MarkingsDto } from '../models/marking.model';
+import type { AtomsDto, MarksDto } from '../models/marking.model';
 
 export class MarkingResource {
     private readonly api: Api;
@@ -15,9 +15,9 @@ export class MarkingResource {
         return objectToCamel<AtomsDto>(response.data);
     }
 
-    async getMarkingsForClass(atomClassId: string): Promise<MarkingsDto> {
+    async getMarksForClass(atomClassId: string): Promise<MarksDto> {
         const response = await this.api.client.get<any>(`/3/marking/marks/${atomClassId}`);
 
-        return objectToCamel<MarkingsDto>(response.data);
+        return objectToCamel<MarksDto>(response.data);
     }
 }

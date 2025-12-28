@@ -9,7 +9,7 @@ export class AbsenceResource {
         this.api = api;
     }
 
-    async getStudentAbsences(): Promise<AbsencesDto> {
+    public async getStudentAbsences(): Promise<AbsencesDto> {
         const response = await this.api.client.get('/3/absence/student');
 
         return objectToCamel<AbsencesDto>(response.data);

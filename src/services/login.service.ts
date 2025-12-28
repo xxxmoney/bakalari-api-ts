@@ -12,7 +12,7 @@ export class LoginService {
         this.resource = new LoginResource(api);
     }
 
-    async authenticate() {
+    public async authenticate() {
         return this.resource.authenticate(this.credentials.username, this.credentials.password);
     }
 

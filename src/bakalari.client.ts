@@ -36,7 +36,7 @@ export class BakalariClient {
         this.marking = new MarkingService(api);
     }
 
-    async authenticate() {
+    public async authenticate() {
         await this.login.authenticate();
     }
 }

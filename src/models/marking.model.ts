@@ -17,7 +17,7 @@ export interface AtomSubjectDto {
     name: string;
 }
 
-export interface MarkingsDto {
+export interface MarksDto {
     markOptions: MarkOptionDto[];
     marks: MarkValueDto[];
     students: StudentDto[];

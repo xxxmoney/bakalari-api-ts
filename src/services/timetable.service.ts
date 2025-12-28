@@ -16,7 +16,7 @@ export class TimetableService {
      * Get timetable summary for the month of the given date
      * @param currentDay
      */
-    async getMonthTimetableSummary(currentDay: DateTime): Promise<TimeTableSummary> {
+    public async getMonthTimetableSummary(currentDay: DateTime): Promise<TimeTableSummary> {
         const monthTimetable: TimeTableSummary = { days: [] };
 
         // TODO: maybe parallelize this?

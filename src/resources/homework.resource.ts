@@ -11,7 +11,7 @@ export class HomeworkResource {
         this.api = api;
     }
 
-    async getHomeworks(from: DateTime, to: DateTime): Promise<HomeworksDto> {
+    public async getHomeworks(from: DateTime, to: DateTime): Promise<HomeworksDto> {
         const response = await this.api.client.get<HomeworksDto>('/3/homeworks', {
             params: {
                 from: from.toFormat(constants.DATE_FORMAT),
@@ -22,7 +22,7 @@ export class HomeworkResource {
         return objectToCamel<HomeworksDto>(response.data);
     }
 
-    async getHomeworksCountActual(): Promise<HomeworkCountDto> { // TODO: Define return type
+    public async getHomeworksCountActual(): Promise<HomeworkCountDto> { // TODO: Define return type
         const response = await this.api.client.get<HomeworkCountDto>('/3/homeworks/count-actual');
 
         return objectToCamel<HomeworkCountDto>(response.data);

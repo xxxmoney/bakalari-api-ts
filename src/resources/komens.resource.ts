@@ -14,7 +14,7 @@ export class KomensResource {
         this.api = api;
     }
 
-    async getAttachment(id: string): Promise<ArrayBuffer> {
+    public async getAttachment(id: string): Promise<ArrayBuffer> {
         const response = await this.api.client.get(`/3/komens/attachment/${id}`, {
             responseType: 'arraybuffer'
         });
@@ -22,59 +22,59 @@ export class KomensResource {
         return response.data;
     }
 
-    async sendMessage(data: KomensSendMessageDto): Promise<void> {
+    public async sendMessage(data: KomensSendMessageDto): Promise<void> {
         await this.api.client.post('/3/komens/message', data);
     }
 
-    async getMessage(id: string): Promise<KomensMessagesDto> {
+    public async getMessage(id: string): Promise<KomensMessagesDto> {
         const response = await this.api.client.get(`/3/komens/message/${id}`);
 
         return objectToCamel<KomensMessagesDto>(response.data);
     }
 
-    async markMessageAsRead(id: string): Promise<void> {
+    public async markMessageAsRead(id: string): Promise<void> {
         await this.api.client.put(`/3/komens/message/${id}/mark-as-read`, new URLSearchParams());
     }
 
-    async getMessageTypes(): Promise<KomensMessageTypesDto> {
+    public async getMessageTypes(): Promise<KomensMessageTypesDto> {
         const response = await this.api.client.get('/3/komens/message-types');
 
         return objectToCamel<KomensMessageTypesDto>(response.data);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async editMessageType(edit: any): Promise<any> { // TODO: Define return type
+    public async editMessageType(edit: any): Promise<any> { // TODO: Define return type
         const response = await this.api.client.post('/3/komens/message-types/edit', edit);
 
         return objectToCamel(response.data);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async replyMessageType(reply: any): Promise<any> { // TODO: Define return type
+    public async replyMessageType(reply: any): Promise<any> { // TODO: Define return type
         const response = await this.api.client.post('/3/komens/message-types/reply', reply);
 
         return objectToCamel(response.data);
     }
 
-    async getMessageForType(id: string, type: MessageSpecificType): Promise<KomensMessageDetailResponseDto> {
+    public async getMessageForType(id: string, type: MessageSpecificType): Promise<KomensMessageDetailResponseDto> {
         const response = await this.api.client.get(`/3/komens/messages/${type}/${id}`);
 
         return objectToCamel<KomensMessageDetailResponseDto>(response.data);
     }
 
-    async getMessages(type: MessageType): Promise<KomensMessagesDto> {
+    public async getMessages(type: MessageType): Promise<KomensMessagesDto> {
         const response = await this.api.client.post(`/3/komens/messages/${type}`, new URLSearchParams());
 
         return objectToCamel<KomensMessagesDto>(response.data);
     }
 
-    async getUnreadMessagesCount(type: MessageUnreadType): Promise<number> {
+    public async getUnreadMessagesCount(type: MessageUnreadType): Promise<number> {
         const response = await this.api.client.get(`/3/komens/messages/${type}/unread`);
 
         return response.data;
     }
 
-    async getRatingTemplates(): Promise<RatingTemplatesDto> {
+    public async getRatingTemplates(): Promise<RatingTemplatesDto> {
         const response = await this.api.client.get('/3/komens/rating-templates');
 
         return objectToCamel<RatingTemplatesDto>(response.data);

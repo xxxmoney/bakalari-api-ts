@@ -529,7 +529,7 @@ describe('BakalariClient.marking.resource', () => {
 
         if (result.atoms.length > 0) {
             const markId = result.atoms[1].id;
-            const atom = await client.marking.resource.getMarkingsForClass(markId);
+            const atom = await client.marking.resource.getMarksForClass(markId);
 
             //
             // Assert

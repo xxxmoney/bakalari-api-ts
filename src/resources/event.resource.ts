@@ -11,7 +11,7 @@ export class EventResource {
         this.api = api;
     }
 
-    async getEvents(from: DateTime | null = null): Promise<EventsDto> {
+    public async getEvents(from: DateTime | null = null): Promise<EventsDto> {
         const formattedFrom = this.formatDate(from);
         const response = await this.api.client.get('/3/events', {
             params: {
@@ -22,7 +22,7 @@ export class EventResource {
         return objectToCamel<EventsDto>(response.data);
     }
 
-    async getMyEvents(from: DateTime | null = null): Promise<EventsDto> {
+    public async getMyEvents(from: DateTime | null = null): Promise<EventsDto> {
         const formattedFrom = this.formatDate(from);
         const response = await this.api.client.get('/3/events/my', {
             params: {
@@ -33,7 +33,7 @@ export class EventResource {
         return objectToCamel<EventsDto>(response.data);
     }
 
-    async getPublicEvents(from: DateTime | null = null): Promise<EventsDto> {
+    public async getPublicEvents(from: DateTime | null = null): Promise<EventsDto> {
         const formattedFrom = this.formatDate(from);
         const response = await this.api.client.get('/3/events/public', {
             params: {

@@ -9,7 +9,7 @@ export class ClassbookResource {
         this.api = api;
     }
 
-    async getClassbooks(): Promise<ClassbookDto> {
+    public async getClassbooks(): Promise<ClassbookDto> {
         const response = await this.api.client.get('/3/classbook');
 
         return objectToCamel<ClassbookDto>(response.data);

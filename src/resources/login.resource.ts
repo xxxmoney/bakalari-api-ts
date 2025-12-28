@@ -10,7 +10,7 @@ export class LoginResource {
         this.api = api;
     }
 
-    async authenticate(username: string, password: string): Promise<LoginDto> {
+    public async authenticate(username: string, password: string): Promise<LoginDto> {
         const params = new URLSearchParams();
 
         params.append('username', username);
@@ -26,7 +26,7 @@ export class LoginResource {
         return data;
     }
 
-    async getLoginToken(): Promise<string> {
+    public async getLoginToken(): Promise<string> {
         const response = await this.api.client.get('/3/logintoken');
 
         return response.data;
