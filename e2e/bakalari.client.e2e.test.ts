@@ -878,3 +878,25 @@ describe('BakalariClient.user.resource', () => {
         expect(result).toBeDefined();
     });
 });
+
+describe('BakalariClient.webModule.resource', () => {
+    test('getWebModules', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.webModule.resource.getWebModules();
+
+        //
+        // Assert
+        //
+        console.log(JSON.stringify(result, null, 2));
+        expect(result).toBeDefined();
+    });
+});

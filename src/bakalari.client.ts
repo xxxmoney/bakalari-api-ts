@@ -15,6 +15,7 @@ import { NotificationService } from './services/notification.service';
 import { SubjectsService } from './services/subjects.service';
 import { SubstitutionService } from './services/substitution.service';
 import { UserService } from './services/user.service';
+import { WebModuleService } from './services/web-module.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -33,6 +34,7 @@ export class BakalariClient {
     public readonly subject: SubjectsService;
     public readonly substitution: SubstitutionService;
     public readonly user: UserService;
+    public readonly webModule: WebModuleService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -52,6 +54,7 @@ export class BakalariClient {
         this.subject = new SubjectsService(api);
         this.substitution = new SubstitutionService(api);
         this.user = new UserService(api);
+        this.webModule = new WebModuleService(api);
     }
 
     public async authenticate() {
