@@ -278,8 +278,9 @@ import { objectToCamel } from 'ts-case-convert';
 export class GdprResource {
 // ...
     async getCommissioner(): Promise<Commissioner> {
-        const response = await this.api.client.get<Commissioner>('/3/gdpr/commissioner');
-        return objectToCamel<Commissioner>(response.data);
+        const response = await this.api.client.get('/3/gdpr/commissioner');
+        
+      return objectToCamel<Commissioner>(response.data);
     }
 
 // ...

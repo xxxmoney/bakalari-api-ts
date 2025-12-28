@@ -12,7 +12,7 @@ export class SubstitutionResource {
     }
 
     public async getWeekSubstitutions(from: DateTime): Promise<SubstitutionsDto> {
-        const response = await this.api.client.get<SubstitutionsDto>('/3/substitutions', {
+        const response = await this.api.client.get('/3/substitutions', {
             params: {
                 from: from.toFormat(constants.DATE_FORMAT)
             }

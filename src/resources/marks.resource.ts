@@ -15,25 +15,25 @@ export class MarksResource {
     }
 
     public async getSubjectsMarks(): Promise<SubjectsMarksDto> {
-        const response = await this.api.client.get<SubjectsMarksDto>('/3/marks');
+        const response = await this.api.client.get('/3/marks');
 
         return objectToCamel<SubjectsMarksDto>(response.data);
     }
 
     public async getNewMarksCount(): Promise<number> {
-        const response = await this.api.client.get<number>('/3/marks/count-new');
+        const response = await this.api.client.get('/3/marks/count-new');
 
         return response.data;
     }
 
     public async getFinals(): Promise<CertificateTermsDto> {
-        const response = await this.api.client.get<CertificateTermsDto>('/3/marks/final');
+        const response = await this.api.client.get('/3/marks/final');
 
         return objectToCamel<CertificateTermsDto>(response.data);
     }
 
     public async getMeasures(): Promise<PedagogicalMeasuresDto> {
-        const response = await this.api.client.get<PedagogicalMeasuresDto>('/3/marks/measures');
+        const response = await this.api.client.get('/3/marks/measures');
 
         return objectToCamel<PedagogicalMeasuresDto>(response.data);
     }

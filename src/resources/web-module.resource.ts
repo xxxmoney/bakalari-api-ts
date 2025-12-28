@@ -10,7 +10,7 @@ export class WebModuleResource {
     }
 
     public async getWebModules(): Promise<WebModulesDto> {
-        const response = await this.api.client.get<WebModulesDto>('/3/webmodule');
+        const response = await this.api.client.get('/3/webmodule');
 
         return objectToCamel<WebModulesDto>(response.data);
     }

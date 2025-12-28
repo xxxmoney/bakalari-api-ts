@@ -10,13 +10,13 @@ export class SubjectsResource {
     }
 
     public async getSubjects(): Promise<SubjectsDto> {
-        const response = await this.api.client.get<SubjectsDto>('/3/subjects');
+        const response = await this.api.client.get('/3/subjects');
 
         return objectToCamel<SubjectsDto>(response.data);
     }
 
     public async getSubjectThemes(subjectId: string): Promise<SubjectThemesDto> {
-        const response = await this.api.client.get<SubjectThemesDto>(`/3/subjects/themes/${subjectId}`);
+        const response = await this.api.client.get(`/3/subjects/themes/${subjectId}`);
 
         return objectToCamel<SubjectThemesDto>(response.data);
     }
