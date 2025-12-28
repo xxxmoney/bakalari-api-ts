@@ -588,4 +588,44 @@ describe('BakalariClient.marks.resource', () => {
         console.log(result);
         expect(result).toBeDefined();
     });
+
+    test('getFinals', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.marks.resource.getFinals();
+
+        //
+        // Assert
+        //
+        console.log(result);
+        expect(result).toBeDefined();
+    });
+
+    test('getMeasures', async () => {
+        //
+        // Arrange
+        //
+        // eslint-disable-next-line no-undef
+        const client = new BakalariClient(process.env.APP_BAKALARI_URL!, { username: process.env.APP_USERNAME!, password: process.env.APP_PASSWORD! });
+
+        //
+        // Act
+        //
+        await client.authenticate();
+        const result = await client.marks.resource.getMeasures();
+
+        //
+        // Assert
+        //
+        console.log(result);
+        expect(result).toBeDefined();
+    });
 });
