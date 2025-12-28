@@ -10,9 +10,10 @@ import { HomeworkService } from './services/homework.service';
 import { KomensService } from './services/komens.service';
 import { MarkingService } from './services/marking.service';
 import { MarksService } from './services/marks.service';
-import { PaymentsService } from './services/payments.service';
+import { PaymentService } from './services/payment.service';
 import { NotificationService } from './services/notification.service';
 import { SubjectsService } from './services/subjects.service';
+import { SubstitutionService } from './services/substitution.service';
 
 // Export services as single unified service
 export class BakalariClient {
@@ -26,9 +27,10 @@ export class BakalariClient {
     public readonly komens: KomensService;
     public readonly marking: MarkingService;
     public readonly marks: MarksService;
-    public readonly payments: PaymentsService;
+    public readonly payments: PaymentService;
     public readonly notification: NotificationService;
     public readonly subjects: SubjectsService;
+    public readonly substitutions: SubstitutionService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
@@ -43,9 +45,10 @@ export class BakalariClient {
         this.komens = new KomensService(api);
         this.marking = new MarkingService(api);
         this.marks = new MarksService(api);
-        this.payments = new PaymentsService(api);
+        this.payments = new PaymentService(api);
         this.notification = new NotificationService(api);
         this.subjects = new SubjectsService(api);
+        this.substitutions = new SubstitutionService(api);
     }
 
     public async authenticate() {

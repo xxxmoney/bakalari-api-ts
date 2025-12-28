@@ -7,7 +7,7 @@ import type {
     Sorting
 } from '../models/payments.model';
 
-export class PaymentsResource {
+export class PaymentResource {
     private readonly api: Api;
 
     constructor(api: Api) {
