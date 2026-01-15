@@ -1,5 +1,5 @@
 
-export interface TimeTableResponseDto {
+export interface TimeTableDto {
     hours: HourItemDto[];
     days: DayItemDto[];
     classes: ClassItemDto[];
@@ -8,7 +8,7 @@ export interface TimeTableResponseDto {
     teachers: TeacherItemDto[];
     rooms: RoomItemDto[];
     cycles: CycleItemDto[];
-    students: unknown[]; // TODO: specify when known
+    students: unknown[]; // TODO: Define
 }
 
 export type ChangeTypeDto =
@@ -39,10 +39,10 @@ export interface AtomDto {
     isLastRoomLesson: boolean;
     cycleIds: string[];
     change: ChangeItemDto | null;
-    homeworkIds: unknown[]; // TODO: specify when known
-    homeworks: unknown[]; // TODO: specify when known
+    homeworkIds: unknown[]; // TODO: Define
+    homeworks: unknown[]; // TODO: Define
     theme: string;
-    assistants: unknown[]; // TODO: specify when known
+    assistants: unknown[]; // TODO: Define
     notice: string;
     lessonRelease: string; // e.g., 'NoChange'
 }
@@ -64,7 +64,7 @@ export type DayTypeDto =
 
 export interface DayItemDto {
     atoms: AtomDto[];
-    assistanceAtoms: unknown[]; // TODO: specify when known
+    assistanceAtoms: unknown[]; // TODO: Define
     dayOfWeek: number;
     date: string; // ISO 8601 DateTime string
     dayDescription: string;

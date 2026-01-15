@@ -2,22 +2,62 @@
 import { Api } from './api/base.api';
 import type { Credentials } from './models/credentials.model';
 import { LoginService } from './services/login.service';
+import { AbsenceService } from './services/absence.service';
+import { ClassbookService } from './services/classbook.service';
+import { EventService } from './services/event.service';
+import { GdprService } from './services/gdpr.service';
+import { HomeworkService } from './services/homework.service';
+import { KomensService } from './services/komens.service';
+import { MarkingService } from './services/marking.service';
+import { MarksService } from './services/marks.service';
+import { PaymentService } from './services/payment.service';
+import { NotificationService } from './services/notification.service';
+import { SubjectsService } from './services/subjects.service';
+import { SubstitutionService } from './services/substitution.service';
+import { UserService } from './services/user.service';
+import { WebModuleService } from './services/web-module.service';
 
 // Export services as single unified service
 export class BakalariClient {
-    private readonly login: LoginService;
-
+    public readonly login: LoginService;
     public readonly timetable: TimetableService;
+    public readonly absence: AbsenceService;
+    public readonly classbook: ClassbookService;
+    public readonly event: EventService;
+    public readonly gdpr: GdprService;
+    public readonly homework: HomeworkService;
+    public readonly komens: KomensService;
+    public readonly marking: MarkingService;
+    public readonly mark: MarksService;
+    public readonly payment: PaymentService;
+    public readonly notification: NotificationService;
+    public readonly subject: SubjectsService;
+    public readonly substitution: SubstitutionService;
+    public readonly user: UserService;
+    public readonly webModule: WebModuleService;
 
     constructor(baseUrl: string, credentials: Credentials) {
         const api = new Api(baseUrl);
 
         this.login = new LoginService(api, credentials);
-
         this.timetable = new TimetableService(api);
+        this.absence = new AbsenceService(api);
+        this.classbook = new ClassbookService(api);
+        this.event = new EventService(api);
+        this.gdpr = new GdprService(api);
+        this.homework = new HomeworkService(api);
+        this.komens = new KomensService(api);
+        this.marking = new MarkingService(api);
+        this.mark = new MarksService(api);
+        this.payment = new PaymentService(api);
+        this.notification = new NotificationService(api);
+        this.subject = new SubjectsService(api);
+        this.substitution = new SubstitutionService(api);
+        this.user = new UserService(api);
+        this.webModule = new WebModuleService(api);
     }
 
-    async authenticate() {
+    public async authenticate() {
         await this.login.authenticate();
     }
 }

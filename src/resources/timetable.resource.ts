@@ -1,5 +1,5 @@
 ﻿import { DateTime } from 'luxon';
-import type { TimeTableResponseDto } from '../models/timetable-response.model';
+import type { TimeTableDto } from '../models/timetable.model';
 import * as constants from '../constants';
 import { objectToCamel } from 'ts-case-convert';
 import type { Api } from '../api/base.api';
@@ -11,14 +11,20 @@ export class TimetableResource {
         this.api = api;
     }
 
-    async getWeekTimetable(date: DateTime): Promise<TimeTableResponseDto> {
-        const formattedDate = date.toFormat(constants.DATE_FORMAT);
+    async getWeekTimetable(date: DateTime): Promise<TimeTableDto> {
         const response = await this.api.client.get('/3/timetable/actual', {
             params: {
-                date: formattedDate
+                date: date.toFormat(constants.DATE_FORMAT)
             }
         });
 
-        return objectToCamel<TimeTableResponseDto>(response.data);
+        return objectToCamel<TimeTableDto>(response.data);
     }
+
+    async getPermanentTimetable(): Promise<TimeTableDto> {
+        const response = await this.api.client.get('/3/timetable/permanent');
+
+        return objectToCamel<TimeTableDto>(response.data);
+    }
+
 }

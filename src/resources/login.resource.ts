@@ -1,6 +1,7 @@
-﻿import type { LoginResponse } from '../models/login.model';
+﻿import type { LoginDto } from '../models/login.model';
 import * as constants from '../constants';
 import type { Api } from '../api/base.api';
+import { objectToCamel } from 'ts-case-convert';
 
 export class LoginResource {
     private readonly api: Api;
@@ -9,7 +10,7 @@ export class LoginResource {
         this.api = api;
     }
 
-    async authenticate(username: string, password: string): Promise<LoginResponse> {
+    public async authenticate(username: string, password: string): Promise<LoginDto> {
         const params = new URLSearchParams();
 
         params.append('username', username);
@@ -18,10 +19,16 @@ export class LoginResource {
         params.append('client_id', constants.CLIENT_ID);
 
         const response = await this.api.client.post('/login', params);
-        const data = response.data as LoginResponse;
+        const data = objectToCamel<LoginDto>(response.data);
 
-        this.api.setAuthToken(data.access_token);
+        this.api.setAuthToken(data.accessToken);
 
         return data;
+    }
+
+    public async getLoginToken(): Promise<string> {
+        const response = await this.api.client.get('/3/logintoken');
+
+        return response.data;
     }
 }

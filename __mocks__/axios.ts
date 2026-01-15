@@ -10,6 +10,14 @@ const mockAxios = {
         headers: {
             common: {}
         }
+    },
+    interceptors: {
+        response: {
+            use: jest.fn(),
+        },
+        request: {
+            use: jest.fn(),
+        }
     }
 };
 
